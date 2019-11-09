@@ -1,9 +1,9 @@
 import gui_fields.*;
 import gui_main.GUI;
-import gui_tests.Field_Test;
 
 public class Game {
     public void playGame() {
+        //Setup for game
         GUI gui = new GUI();
         Dice dice1 = new Dice(6);
         Dice dice2 = new Dice(6);
@@ -14,31 +14,37 @@ public class Game {
         while (playerCount < 2 || playerCount > 4)
             playerCount = gui.getUserInteger("Not a valid number, please input a number between 2 and 4");
         GUI_Player[] players = new GUI_Player[playerCount];
+        MoveCar mc = new MoveCar(playerCount);
 
         //Initializing players
-        for (int i=0; i <players.length; i++) {
+        for (int i = 0; i < players.length; i++) {
             String playerName = gui.getUserString("Input player " + (i + 1) + "'s name");
-            players[i] = new GUI_Player(playerName, 1000,new GUI_Car());
+            players[i] = new GUI_Player(playerName, 1000, new GUI_Car());
             gui.addPlayer(players[i]);
         }
 
         //Put players on start
-        for (GUI_Player player : players) {
-                fields[0].setCar(player,true);
+        for (int i = 0; i < players.length; i++) {
+            fields[0].setCar(players[i], true);
+            mc.move(players[i], 0, fields);
         }
 
-        //Dice throw and move player
-        for (GUI_Player player : players) {
-            gui.showMessage(player.getName() + " is rolling the dices!");
+        while (true)
+            //Dice throw and move player
+            for (int i = 0; i < players.length; i++) {
+                gui.showMessage(players[i].getName() + " is rolling the dices!");
 
-            dice1.rollDice();
-            dice2.rollDice();
+                dice1.rollDice();
+                dice2.rollDice();
 
-            gui.setDice(dice1.getEyes(),dice2.getEyes());
+                gui.setDice(dice1.getEyes(), dice2.getEyes());
 
+                mc.move(players[i], dice1.getEyes() + dice2.getEyes(), fields);
 
-            if (dice1.getEyes() + dice2.getEyes() < fields.length)
-                fields[dice1.getEyes() + dice2.getEyes()].setCar(player,true);
-        }
+                if (players[i].getBalance() >= 3000){
+                    break;
+                }
+
+            }
     }
 }
