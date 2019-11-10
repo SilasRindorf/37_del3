@@ -44,13 +44,14 @@ public class Game {
                 gui.setDice(dice1.getEyes(), dice2.getEyes());
                 mc.move(players[i], dice1.getEyes() + dice2.getEyes(), fields);
                 gui.showMessage(fields[mc.getCarPosition(players[i].getNumber())].getDescription());
-                boolean buy = gui.getUserLeftButtonPressed(players[i].getName() + " do you want to buy this property", "Yes", "No");
+
                 tile.determineTile(fields[mc.getCarPosition(players[i].getNumber())]);
+
+                //For tests
                 System.out.println(fields[mc.getCarPosition(players[i].getNumber())].toString());
-                if (players[i].getBalance() >= 3000) {
+                if (players[i].getBalance() == 0) {
                     return;
                 }
-
             }
         }
     }
