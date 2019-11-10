@@ -1,4 +1,7 @@
-import gui_fields.*;
+import Tiles.Tile;
+import gui_fields.GUI_Car;
+import gui_fields.GUI_Field;
+import gui_fields.GUI_Player;
 import gui_main.GUI;
 
 public class Game {
@@ -24,12 +27,13 @@ public class Game {
         }
 
         //Put players on start
-        for (int i = 0; i < players.length; i++) {
-            fields[0].setCar(players[i], true);
-            mc.move(players[i], 0, fields);
+        for (GUI_Player player : players) {
+            fields[0].setCar(player, true);
+            mc.move(player, 0, fields);
         }
-
-        while (true)
+        Tile tile = new Tile();
+        //Game loop
+        while (true) {
             //Dice throw and move player
             for (int i = 0; i < players.length; i++) {
                 gui.showMessage(players[i].getName() + " is rolling the dices!");
@@ -38,13 +42,16 @@ public class Game {
                 dice2.rollDice();
 
                 gui.setDice(dice1.getEyes(), dice2.getEyes());
-
                 mc.move(players[i], dice1.getEyes() + dice2.getEyes(), fields);
-
-                if (players[i].getBalance() >= 3000){
-                    break;
+                gui.showMessage(fields[mc.getCarPosition(players[i].getNumber())].getDescription());
+                boolean buy = gui.getUserLeftButtonPressed(players[i].getName() + " do you want to buy this property", "Yes", "No");
+                tile.determineTile(fields[mc.getCarPosition(players[i].getNumber())]);
+                System.out.println(fields[mc.getCarPosition(players[i].getNumber())].toString());
+                if (players[i].getBalance() >= 3000) {
+                    return;
                 }
 
             }
+        }
     }
 }
