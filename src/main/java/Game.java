@@ -31,7 +31,7 @@ public class Game {
             fields[0].setCar(player, true);
             mc.move(player, 0, fields);
         }
-        Tile tile = new Tile();
+        Tile tile = new Tile(gui);
         //Game loop
         while (true) {
             //Dice throw and move player
