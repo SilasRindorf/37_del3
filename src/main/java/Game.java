@@ -31,25 +31,28 @@ public class Game {
             fields[0].setCar(player, true);
             mc.move(player, 0, fields);
         }
-        Tile tile = new Tile();
+
+        Tile tile = new Tile(gui);
         //Game loop
         while (true) {
             //Dice throw and move player
-            for (int i = 0; i < players.length; i++) {
-                gui.showMessage(players[i].getName() + " is rolling the dices!");
+            for (GUI_Player player : players) {
+                gui.showMessage(player.getName() + " is rolling the dices!");
 
                 dice1.rollDice();
                 dice2.rollDice();
 
                 gui.setDice(dice1.getEyes(), dice2.getEyes());
-                mc.move(players[i], dice1.getEyes() + dice2.getEyes(), fields);
-                gui.showMessage(fields[mc.getCarPosition(players[i].getNumber())].getDescription());
+                mc.move(player, dice1.getEyes() + dice2.getEyes(), fields);
+                gui.showMessage(fields[mc.getCarPosition(player.getNumber())].getDescription());
 
-                tile.determineTile(fields[mc.getCarPosition(players[i].getNumber())]);
+                //TODO change Tiles package, Find better way to get the current tile
+                //Experimental!
+                tile.determineTile(fields[mc.getCarPosition(player.getNumber())]);
 
                 //For tests
-                System.out.println(fields[mc.getCarPosition(players[i].getNumber())].toString());
-                if (players[i].getBalance() == 0) {
+                System.out.println(fields[mc.getCarPosition(player.getNumber())].toString());
+                if (player.getBalance() == 0) {
                     return;
                 }
             }
