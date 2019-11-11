@@ -45,7 +45,7 @@ public class Game {
                 mc.move(player, dice1.getEyes() + dice2.getEyes(), fields);
 
                 gui.showMessage(fields[mc.getCarPosition(player.getNumber())].getDescription());
-                tile.determineTile(fields[mc.getCarPosition(player.getNumber())]);
+                //tile.determineTile(fields[mc.getCarPosition(player.getNumber())]);
 
                 //For testing
                 System.out.println(fields[mc.getCarPosition(player.getNumber())].toString());
