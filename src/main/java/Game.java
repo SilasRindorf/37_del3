@@ -35,19 +35,21 @@ public class Game {
         //Game loop
         while (true) {
             //Dice throw and move player
-            for (int i = 0; i < players.length; i++) {
-                gui.showMessage(players[i].getName() + " is rolling the dices!");
+            for (GUI_Player player : players) {
+                gui.showMessage(player.getName() + " is rolling the dices!");
 
                 dice1.rollDice();
                 dice2.rollDice();
 
                 gui.setDice(dice1.getEyes(), dice2.getEyes());
-                mc.move(players[i], dice1.getEyes() + dice2.getEyes(), fields);
-                gui.showMessage(fields[mc.getCarPosition(players[i].getNumber())].getDescription());
-                boolean buy = gui.getUserLeftButtonPressed(players[i].getName() + " do you want to buy this property", "Yes", "No");
-                tile.determineTile(fields[mc.getCarPosition(players[i].getNumber())]);
-                System.out.println(fields[mc.getCarPosition(players[i].getNumber())].toString());
-                if (players[i].getBalance() >= 3000) {
+                mc.move(player, dice1.getEyes() + dice2.getEyes(), fields);
+
+                gui.showMessage(fields[mc.getCarPosition(player.getNumber())].getDescription());
+                tile.determineTile(fields[mc.getCarPosition(player.getNumber())]);
+
+                //For testing
+                System.out.println(fields[mc.getCarPosition(player.getNumber())].toString());
+                if (player.getBalance() >= 3000) {
                     return;
                 }
 
