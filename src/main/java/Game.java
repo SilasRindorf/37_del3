@@ -48,7 +48,7 @@ public class Game {
 
                 //TODO change Tiles package, Find better way to get the current tile
                 //Experimental!
-                tile.determineTile(fields[mc.getCarPosition(player.getNumber())]);
+                //tile.determineTile(fields[mc.getCarPosition(player.getNumber())]);
 
                 //For tests
                 System.out.println(fields[mc.getCarPosition(player.getNumber())].toString());
