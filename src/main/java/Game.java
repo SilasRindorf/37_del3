@@ -31,7 +31,6 @@ public class Game {
             fields[0].setCar(player, true);
             mc.move(player, 0, fields);
         }
-        Tile tile = new Tile(gui);
         //Game loop
         while (true) {
             //Dice throw and move player
@@ -45,11 +44,8 @@ public class Game {
                 mc.move(player, dice1.getEyes() + dice2.getEyes(), fields);
 
                 gui.showMessage(fields[mc.getCarPosition(player.getNumber())].getDescription());
-                //tile.determineTile(fields[mc.getCarPosition(player.getNumber())]);
 
-                //For testing
-                System.out.println(fields[mc.getCarPosition(player.getNumber())].toString());
-                if (player.getBalance() >= 3000) {
+                if (player.getBalance() <= 0) {
                     return;
                 }
 
