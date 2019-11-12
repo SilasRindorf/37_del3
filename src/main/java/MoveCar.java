@@ -3,6 +3,7 @@ import gui_fields.GUI_Player;
 
 public class MoveCar {
     private int[] carPositions;
+    private boolean passedStart;
     public MoveCar(int amountOfPlayers){
         carPositions = new int[amountOfPlayers];
     }
@@ -11,8 +12,15 @@ public class MoveCar {
         carPositions[player.getNumber()] += movement;
         if (carPositions[player.getNumber()] >= fields.length){
             carPositions[player.getNumber()] -= fields.length;
+            passedStart = true;
         }
+        else
+            passedStart = false;
         fields[carPositions[player.getNumber()]].setCar(player, true);
+    }
+
+    public boolean isPassedStart() {
+        return passedStart;
     }
 
     public int getCarPosition(int carID) {
