@@ -22,7 +22,9 @@ public class Game {
         //Initializing players
         for (int i = 0; i < players.length; i++) {
             String playerName = gui.getUserString("Input player " + (i + 1) + "'s name");
-            players[i] = new GUI_Player(playerName, 1000, new GUI_Car());
+            //If another player already has a Car colored the same as car create new car
+            GUI_Car car = createCar(i,players);
+            players[i] = new GUI_Player(playerName, 1000, car);
             gui.addPlayer(players[i]);
         }
 
@@ -45,15 +47,24 @@ public class Game {
                 mc.move(player, dice1.getEyes() + dice2.getEyes(), fields);
 
                 gui.showMessage(fields[mc.getCarPosition(player.getNumber())].getDescription());
-                //tile.determineTile(fields[mc.getCarPosition(player.getNumber())]);
+                tile.determineTile(fields[mc.getCarPosition(player.getNumber())],player);
+
 
                 //For testing
                 System.out.println(fields[mc.getCarPosition(player.getNumber())].toString());
-                if (player.getBalance() >= 3000) {
+                if (player.getBalance() < 0){
                     return;
                 }
 
             }
         }
+    }
+    private GUI_Car createCar(int maxCurrentPlayers,GUI_Player[] players){
+        GUI_Car car = new GUI_Car();
+        for (int j = 0; j < maxCurrentPlayers; j++) {
+            if (car.getPrimaryColor() == players[j].getCar().getPrimaryColor())
+                car = createCar(maxCurrentPlayers,players);
+        }
+        return car;
     }
 }
