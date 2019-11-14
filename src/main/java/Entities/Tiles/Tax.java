@@ -1,4 +1,4 @@
-package Tiles;
+package Entities.Tiles;
 import gui_fields.GUI_Player;
 import gui_main.GUI;
 

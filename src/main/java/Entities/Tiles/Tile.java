@@ -1,4 +1,4 @@
-package Tiles;
+package Entities.Tiles;
 import gui_fields.*;
 import gui_main.GUI;
 public class Tile {
@@ -7,7 +7,6 @@ public class Tile {
     public Tile(GUI gui) {
         this.gui = gui;
     }
-
     public void determineTile(GUI_Field field, GUI_Player player) {
         if (field.getClass() == GUI_Street.class) {
             new Street().encounter(gui,(GUI_Street) field,player);

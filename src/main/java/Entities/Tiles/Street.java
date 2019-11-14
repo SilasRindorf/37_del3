@@ -1,8 +1,7 @@
-package Tiles;
+package Entities.Tiles;
 import gui_fields.GUI_Player;
 import gui_fields.GUI_Street;
 import gui_main.GUI;
-import java.awt.*;
 
 public class Street{
     public void encounter(GUI gui, GUI_Street street, GUI_Player player){

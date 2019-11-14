@@ -1,3 +1,5 @@
+package Entities;
+
 import gui_fields.GUI_Player;
 
 public class Players {

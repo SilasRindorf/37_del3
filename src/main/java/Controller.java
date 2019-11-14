@@ -1,11 +1,11 @@
-import Tiles.Tile;
-import gui_fields.GUI_Board;
-import gui_fields.GUI_Car;
-import gui_fields.GUI_Field;
-import gui_fields.GUI_Player;
+import Entities.Players;
+import Logic.MoveCar;
+import Entities.Tiles.Tile;
+import gui_fields.*;
 import gui_main.GUI;
 
-public class Game {
+public class Controller {
+
     public void playGame() {
         //Setup for game
         GUI gui = new GUI();
@@ -32,10 +32,10 @@ public class Game {
         //Put players on start
         for (GUI_Player player : players.getPlayers()) {
             fields[0].setCar(player, true);
-            mc.move(player, 0, fields);
         }
+
         Tile tile = new Tile(gui);
-        //Game loop
+        //Controller.Game loop
         while (true) {
             //Dice throw and move player
             for (GUI_Player player : players.getPlayers()) {
@@ -43,21 +43,21 @@ public class Game {
 
                 dice1.rollDice();
                 dice2.rollDice();
-
                 gui.setDice(dice1.getEyes(), dice2.getEyes());
+
                 mc.move(player, dice1.getEyes() + dice2.getEyes(), fields);
                 if (mc.isPassedStart())
                     player.setBalance(player.getBalance() + 200);
 
                 gui.showMessage(fields[mc.getCarPosition(player.getNumber())].getDescription());
 
-                //Test class needs changing
+                //todo Tile needs refactoring
                 tile.determineTile(fields[mc.getCarPosition(player.getNumber())],player);
 
 
                 //For testing
                 System.out.println(fields[mc.getCarPosition(player.getNumber())].toString());
-                if (player.getBalance() < 0){
+                if (player.getBalance() <= 0){
                     return;
                 }
 
