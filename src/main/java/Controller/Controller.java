@@ -1,3 +1,5 @@
+package Controller;
+import Dice.*;
 import Entities.Players;
 import Logic.MoveCar;
 import gui_fields.*;
@@ -12,16 +14,14 @@ public class Controller {
         GUI_Field[] fields = gui.getFields();
 
         //Get number of players
-        int playerCount = gui.getUserInteger("Type in number of players (2-4)");
-        while (playerCount < 2 || playerCount > 4)
-            playerCount = gui.getUserInteger("Not a valid number, please input a number between 2 and 4");
+        int playerCount = gui.getUserInteger("Type in number of players (2-4)",2,4);
         Players players = new Players(new GUI_Player[playerCount]);
         MoveCar mc = new MoveCar(playerCount);
 
         //Initializing players
-        for (int i = 0; i < players.getPlayers().length; i++) {
+        for (int i = 0; i < playerCount; i++) {
             String playerName = gui.getUserString("Input player " + (i + 1) + "'s name");
-            //If another player already has a Car colored the same as car create new car
+            //If another player already has a Car colored the same as the new car create new car
             GUI_Car car = createCar(i,players.getPlayers());
             players.getPlayers()[i] = new GUI_Player(playerName, 1000, car);
             gui.addPlayer(players.getPlayers()[i]);
@@ -32,7 +32,7 @@ public class Controller {
             fields[0].setCar(player, true);
         }
 
-        //Controller.Game loop
+        //Controller.Controller.Game loop
         while (true) {
             //Dice throw and move player
             for (GUI_Player player : players.getPlayers()) {
