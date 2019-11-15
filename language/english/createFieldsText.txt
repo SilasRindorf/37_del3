@@ -1,3 +1,84 @@
 START
 Start
 Receive 200M
+You start here and each time you pass the start you get 200M
+
+CHANCE
+Chance
+Draw a chance card
+You draw a card that has a random effect
+
+JAILVISIT
+Jail
+Jail
+You can visit your friends or enemies in the jail
+
+PARKING
+Free parking
+Free parking
+You get a free turn
+
+GOTOjAIL
+Jail
+Jail
+You go to jail for your crimes and lose 1 turn
+
+STREET0
+Title
+SubText
+Description
+
+STREET1
+Title
+SubText
+Description
+
+STREET2
+Title
+SubText
+Description
+
+STREET3
+Title
+SubText
+Description
+
+STREET4
+Title
+SubText
+Description
+
+STREET5
+Title
+SubText
+Description
+
+STREET6
+Title
+SubText
+Description
+
+STREET7
+Title
+SubText
+Description
+
+STREET8
+Title
+SubText
+Description
+
+STREET9
+Title
+SubText
+Description
+
+STREET10
+Title
+SubText
+Description
+
+STREET11
+Title
+SubText
+Description

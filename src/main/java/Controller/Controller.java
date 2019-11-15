@@ -7,6 +7,7 @@ import Logic.Tiles.CreateTiles;
 import gui_fields.*;
 import gui_main.GUI;
 
+import java.awt.*;
 import java.io.FileNotFoundException;
 
 public class Controller {
@@ -14,7 +15,7 @@ public class Controller {
     public void playGame() throws Exception {
         //Setup for game
         CreateTiles createTiles = new CreateTiles();
-        GUI gui = new GUI(createTiles.createNewTiles());
+        GUI gui = new GUI(createTiles.createNewTiles(),Color.CYAN);
         Creator creator = new Creator();
         Dice dice = new Dice(6);
         GUI_Field[] fields = gui.getFields();
@@ -23,7 +24,7 @@ public class Controller {
         String language = gui.getUserSelection("Choose language","English","Danish");
         if (!language.equalsIgnoreCase("english")){
             gui.close();
-            gui = new GUI(createTiles.createNewTiles());
+            gui = new GUI(createTiles.createNewTiles(), Color.CYAN);
         }
         //Get number of players
         int playerCount = gui.getUserInteger("Type in number of players (2-4)",2,4);

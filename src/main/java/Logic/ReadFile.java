@@ -29,7 +29,7 @@ public class ReadFile {
     public String[] fileToStringArray() throws IOException {
         String[] strings;
         int lines = 0;
-        br.mark(1000);
+        br.mark(100000);
         while (br.readLine() != null) {
             lines++;
         }
@@ -45,16 +45,15 @@ public class ReadFile {
     }
     public int findFirstWord(String string) throws IOException {
         String[] strings = fileToStringArray();
-        int i = 0;
         try {
-            while (!(strings[i].equals(string)) && i < strings.length) {
-                System.out.println(i);
-                i++;
+            for (int j = 0; j < strings.length; j++) {
+                if (strings[j].equals(string.toUpperCase()))
+                    return j;
             }
         }catch (Exception e){
             e.printStackTrace();
         }
-        return i;
+        return 0;
     }
     public void closeFile() throws IOException {
         this.br.close();
