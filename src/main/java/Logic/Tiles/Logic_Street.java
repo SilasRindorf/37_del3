@@ -2,8 +2,14 @@ package Logic.Tiles;
 
 public class Logic_Street extends Logic_Fields {
     private int propertyPrice;
-    public Logic_Street(String title, String description,int propertyPrice){
+    private int ownerID;
+    private int rent;
+    public Logic_Street(String title, String description,int propertyPrice,int rent){
         super(title,description);
         this.propertyPrice = propertyPrice;
+        this.rent = rent;
+    }
+    public void setOwnerID(int ownerID){
+        this.ownerID = ownerID;
     }
 }

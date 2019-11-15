@@ -43,6 +43,7 @@ public class Controller {
                 gui.setDie(dice.getEyes());
 
                 mc.move(player, dice.getEyes(), fields);
+                //TODO change MoveCar, who crosses start and who gets money
                 if (mc.isPassedStart())
                     player.setBalance(player.getBalance() + 200);
 

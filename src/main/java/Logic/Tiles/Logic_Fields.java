@@ -10,4 +10,7 @@ public class Logic_Fields {
         return title;
     }
 
+    public String getDescription() {
+        return description;
+    }
 }
