@@ -4,19 +4,20 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+
 public class ReadFile {
     private BufferedReader br;
-    private String[] strings;
+    private String file;
     public void openFile(String file) throws FileNotFoundException {
         br = new BufferedReader(new FileReader(file));
-    }
-    public String[] getStrings(){
-        return strings;
+        this.file = file;
     }
     public int[] ReadInts() throws IOException {
         int[] temp;
         int lines = 0;
-        while (br.readLine() != null) lines++;
+        while (br.readLine() != null) {
+            lines++;
+        }
         temp = new int[lines];
         int i = 0;
         for (String line; (line = br.readLine()) != null; ) {
@@ -26,27 +27,32 @@ public class ReadFile {
         return temp;
     }
     public String[] fileToStringArray() throws IOException {
+        String[] strings;
         int lines = 0;
-        br.mark(999999);
-        while (br.readLine() != null) lines++;
+        br.mark(1000);
+        while (br.readLine() != null) {
+            lines++;
+        }
+        strings = new String[lines];
         br.reset();
-        strings = new String[lines+1];
-        int i = 0;
-        for (String line; (line = br.readLine()) !=null;){
-            i++;
-            strings[i] = line;
+        lines = 0;
+        for (String line; (line = br.readLine()) != null; ) {
+            strings[lines] = line;
+            lines++;
         }
         br.reset();
         return strings;
     }
     public int findFirstWord(String string) throws IOException {
+        String[] strings = fileToStringArray();
         int i = 0;
-        if (strings[0] == null)
-            fileToStringArray();
-        else{
-            while(!(strings[i].equals(string)) && i < strings.length) {
+        try {
+            while (!(strings[i].equals(string)) && i < strings.length) {
+                System.out.println(i);
                 i++;
             }
+        }catch (Exception e){
+            e.printStackTrace();
         }
         return i;
     }

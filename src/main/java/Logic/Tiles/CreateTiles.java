@@ -11,16 +11,19 @@ public class CreateTiles {
     public GUI_Field[] createNewTiles(String language) throws Exception {
         ReadFile rf = new ReadFile();
         rf.openFile("language/" + language + "/createFieldsText.txt");
+        String[] strings = rf.fileToStringArray();
+        System.out.println(strings.length);
+        for (String string : strings) {
+            System.out.println(string);
+        }
         GUI_Field[] tempFields = new GUI_Field[24];
         int j = 0;
         for (int i = 0; i < tempFields.length; i++) {
             if (i == 0){
                 tempFields[0] = new GUI_Start();
                 j = rf.findFirstWord("START");
-                System.out.println(j);
-                System.out.println(rf.getStrings()[j]);
-                tempFields[0].setTitle(rf.fileToStringArray()[j+1]);
-                tempFields[0].setSubText(rf.fileToStringArray()[j+2]);
+                tempFields[0].setTitle(strings[j+1]);
+                //tempFields[0].setSubText(rf.fileToStringArray()[j+2]);
             }
             else if(i == 3 || i == 9 || i == 15 || i == 21) {
                 tempFields[i] = new GUI_Chance();
