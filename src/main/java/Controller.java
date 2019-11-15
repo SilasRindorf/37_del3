@@ -1,6 +1,5 @@
 import Entities.Players;
 import Logic.MoveCar;
-import Entities.Tiles.Tile;
 import gui_fields.*;
 import gui_main.GUI;
 
@@ -33,7 +32,6 @@ public class Controller {
             fields[0].setCar(player, true);
         }
 
-        Tile tile = new Tile(gui);
         //Controller.Game loop
         while (true) {
             //Dice throw and move player
@@ -51,7 +49,6 @@ public class Controller {
                 gui.showMessage(fields[mc.getCarPosition(player.getNumber())].getDescription());
 
                 //todo Tile needs refactoring
-                tile.determineTile(fields[mc.getCarPosition(player.getNumber())],player);
 
 
                 //For testing
