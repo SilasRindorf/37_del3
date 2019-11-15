@@ -1,5 +1,6 @@
 package Logic.Tiles;
 
+//For Bubbi
 public class Logic_Street extends Logic_Fields {
     private int propertyPrice;
     private int ownerID;

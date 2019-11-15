@@ -1,41 +1,53 @@
 package Controller;
 import Dice.*;
-import Entities.Players;
+import Entities.PlayerList;
+import Logic.Creator;
 import Logic.MoveCar;
+import Logic.Tiles.CreateTiles;
 import gui_fields.*;
 import gui_main.GUI;
 
+import java.io.FileNotFoundException;
+
 public class Controller {
 
-    public void playGame() {
+    public void playGame() throws Exception {
         //Setup for game
-        GUI gui = new GUI();
+        CreateTiles createTiles = new CreateTiles();
+        GUI gui = new GUI(createTiles.createNewTiles());
+        Creator creator = new Creator();
         Dice dice = new Dice(6);
         GUI_Field[] fields = gui.getFields();
 
+        //Choose language
+        String language = gui.getUserSelection("Choose language","English","Danish");
+        if (!language.equalsIgnoreCase("english")){
+            gui.close();
+            gui = new GUI(createTiles.createNewTiles());
+        }
         //Get number of players
         int playerCount = gui.getUserInteger("Type in number of players (2-4)",2,4);
-        Players players = new Players(new GUI_Player[playerCount]);
+        PlayerList playerList = new PlayerList(new GUI_Player[playerCount]);
         MoveCar mc = new MoveCar(playerCount);
 
         //Initializing players
         for (int i = 0; i < playerCount; i++) {
             String playerName = gui.getUserString("Input player " + (i + 1) + "'s name");
             //If another player already has a Car colored the same as the new car create new car
-            GUI_Car car = createCar(i,players.getPlayers());
-            players.getPlayers()[i] = new GUI_Player(playerName, 1000, car);
-            gui.addPlayer(players.getPlayers()[i]);
+            GUI_Car car = creator.createCar(i, playerList.getPlayers());
+            playerList.getPlayers()[i] = new GUI_Player(playerName, 1000, car);
+            gui.addPlayer(playerList.getPlayers()[i]);
         }
 
         //Put players on start
-        for (GUI_Player player : players.getPlayers()) {
+        for (GUI_Player player : playerList.getPlayers()) {
             fields[0].setCar(player, true);
         }
 
         //Controller.Controller.Game loop
         while (true) {
             //Dice throw and move player
-            for (GUI_Player player : players.getPlayers()) {
+            for (GUI_Player player : playerList.getPlayers()) {
                 gui.showMessage(player.getName() + " is rolling the dices!");
 
                 dice.rollDice();
@@ -49,9 +61,6 @@ public class Controller {
 
                 gui.showMessage(fields[mc.getCarPosition(player.getNumber())].getDescription());
 
-                //todo Tile needs refactoring
-
-
                 //For testing
                 System.out.println(fields[mc.getCarPosition(player.getNumber())].toString());
                 if (player.getBalance() <= 0){
@@ -61,12 +70,5 @@ public class Controller {
             }
         }
     }
-    private GUI_Car createCar(int maxCurrentPlayers,GUI_Player[] players){
-        GUI_Car car = new GUI_Car();
-        for (int j = 0; j < maxCurrentPlayers; j++) {
-            if (car.getPrimaryColor() == players[j].getCar().getPrimaryColor())
-                car = createCar(maxCurrentPlayers,players);
-        }
-        return car;
-    }
+
 }

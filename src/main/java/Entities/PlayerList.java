@@ -2,9 +2,9 @@ package Entities;
 
 import gui_fields.GUI_Player;
 
-public class Players {
+public class PlayerList {
     private GUI_Player[] players;
-    public Players(GUI_Player[] players){
+    public PlayerList(GUI_Player[] players){
         this.players = players;
     }
 
