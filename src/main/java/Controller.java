@@ -9,8 +9,7 @@ public class Controller {
     public void playGame() {
         //Setup for game
         GUI gui = new GUI();
-        Dice dice1 = new Dice(6);
-        Dice dice2 = new Dice(6);
+        Dice dice = new Dice(6);
         GUI_Field[] fields = gui.getFields();
 
         //Get number of players
@@ -41,11 +40,11 @@ public class Controller {
             for (GUI_Player player : players.getPlayers()) {
                 gui.showMessage(player.getName() + " is rolling the dices!");
 
-                dice1.rollDice();
-                dice2.rollDice();
-                gui.setDice(dice1.getEyes(), dice2.getEyes());
+                dice.rollDice();
 
-                mc.move(player, dice1.getEyes() + dice2.getEyes(), fields);
+                gui.setDie(dice.getEyes());
+
+                mc.move(player, dice.getEyes(), fields);
                 if (mc.isPassedStart())
                     player.setBalance(player.getBalance() + 200);
 
