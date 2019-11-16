@@ -6,10 +6,14 @@ import java.io.FileReader;
 import java.io.IOException;
 
 /**
- * This is a BufferedReader class that let's you open a file you choose,
+ * This is a class that uses BufferedReader that let's you open a file you choose,
+ *
  * read multiple Integers from a document
+ *
  * read multiple lines from a document into a String array
+ *
  * Search for a specific word in all caps in  a document
+ *
  *@author Gruppy 37
  *@version 1.0
  */
