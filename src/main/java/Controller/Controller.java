@@ -33,7 +33,8 @@ public class Controller {
 
         //Initializing players
         for (int i = 0; i < playerCount; i++) {
-            String playerName = gui.getUserString("Input player " + (i + 1) + "'s name");
+            String name = gui.getUserString("Input player " + (i + 1) + "'s name");
+            String playerName = creator.createPlayerName(name, i+1); // lægger 1 til index 0.
             //If another player already has a Car colored the same as the new car create new car
             GUI_Car car = creator.createCar(i, playerList.getPlayers());
             playerList.getPlayers()[i] = new GUI_Player(playerName, 1000, car);
