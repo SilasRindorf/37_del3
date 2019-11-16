@@ -15,7 +15,7 @@ public class Creator {
 
 
     public String createPlayerName(String name, int playerNumber){ //method
-        String stringBuild = name + " player " + playerNumber; //build of string in method
+        String stringBuild = "Player " + playerNumber + " " + name; //build of string in method
         return stringBuild; //what will be returned to the method call in the Controller class.
 
 
