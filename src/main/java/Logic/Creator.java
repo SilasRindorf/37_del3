@@ -4,7 +4,7 @@ import gui_fields.GUI_Car;
 import gui_fields.GUI_Player;
 import java.util.Random;
 import java.awt.*;
-
+//Kage
 public class Creator {
     public GUI_Car createCar(int maxCurrentPlayers, GUI_Player[] players){
 
