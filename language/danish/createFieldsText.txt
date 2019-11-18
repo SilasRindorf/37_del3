@@ -9,8 +9,8 @@ Draw a chance card
 You draw a card that has a random effect
 
 JAILVISIT
-Jail visit
-Jail visit
+Jail
+Jail
 You can visit your friends or enemies in the jail
 
 PARKING
@@ -18,7 +18,7 @@ Free parking
 Free parking
 You get a free turn
 
-GOTOJAIL
+GOTOjAIL
 Jail
 Jail
 You go to jail for your crimes and lose 1 turn
