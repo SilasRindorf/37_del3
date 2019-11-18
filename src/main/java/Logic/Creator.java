@@ -16,9 +16,11 @@ public class Creator {
         return car;
     }
 
-    //TODO Betina create unique names
-    public String createPlayerName(){
-        String str = "";
-        return str;
+
+    public String createPlayerName(String name, int playerNumber){ //method
+        String stringBuild = "Player " + playerNumber + " " + name; //build of string in method
+        return stringBuild; //what will be returned to the method call in the Controller class.
+
+
     }
 }

@@ -5,49 +5,99 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
+/**
+ * This is a class that uses BufferedReader that let's you open a file you choose,
+ *
+ * read multiple Integers from a document
+ *
+ * read multiple lines from a document into a String array
+ *
+ * Search for a specific word in all caps in  a document
+ *
+ *@author Gruppy 37
+ *@version 1.0
+ */
 public class ReadFile {
     private BufferedReader br;
-    private String file;
+    /**
+     * @param file
+     * @throws FileNotFoundException
+     *  The method for opening a new file. Has to be called to a valid filepath before other methods can be called
+     * <pre>
+     *     PRE: A file exists
+     *     POST: A BufferedReader is created with the filepath inputted
+     * </pre>
+     */
     public void openFile(String file) throws FileNotFoundException {
         br = new BufferedReader(new FileReader(file));
-        this.file = file;
     }
+
+    /**
+     * Reads from a file from the first line to the last line
+     * @return an array of ints
+     * @throws IOException
+     * <pre>
+     *  PRE: A file has Integers to read and a filepath as a String
+     *  POST: A Integer array is created from the Integers in the file and returned
+     *</pre>
+     */
     public int[] ReadInts() throws IOException {
         int[] temp;
-        int lines = 0;
-        while (br.readLine() != null) {
-            lines++;
-        }
-        temp = new int[lines];
         int i = 0;
+        br.mark(100000);
+        while (br.readLine() != null) {
+            i++;
+        }
+        temp = new int[i];
+         i = 0;
+        br.reset();
         for (String line; (line = br.readLine()) != null; ) {
             temp[i] = Integer.parseInt(line);
             i++;
         }
         return temp;
     }
+
+    /**
+     * Reads from a file from the first line to the last line
+     * @return an array of Strings
+     * @throws IOException
+     * <pre>
+     *  PRE: A file has Text to read and a filepath as a String
+     *  POST: A String array is created from the lines in the file and returned
+     *</pre>
+     */
     public String[] fileToStringArray() throws IOException {
         String[] strings;
-        int lines = 0;
+        int i = 0;
         br.mark(100000);
         while (br.readLine() != null) {
-            lines++;
+            i++;
         }
-        strings = new String[lines];
+        strings = new String[i];
         br.reset();
-        lines = 0;
+        i = 0;
         for (String line; (line = br.readLine()) != null; ) {
-            strings[lines] = line;
-            lines++;
+            strings[i] = line;
+            i++;
         }
         br.reset();
         return strings;
     }
-    public int findFirstWord(String string) throws IOException {
+    /**
+     * Looks though a file to find a line with the search word in UPPERCASE
+     * @return an Integer
+     * @throws IOException
+     * <pre>
+     *  PRE: A file has the search word in UPPERCASE
+     *  POST: An Integer is made which is the amount of lines down the search word is
+     *</pre>
+     */
+    public int findFirstWord(String searchWord) throws IOException {
         String[] strings = fileToStringArray();
         try {
             for (int j = 0; j < strings.length; j++) {
-                if (strings[j].equals(string.toUpperCase()))
+                if (strings[j].equals(searchWord.toUpperCase()))
                     return j;
             }
         }catch (Exception e){
@@ -55,7 +105,15 @@ public class ReadFile {
         }
         return 0;
     }
+    /**
+     * Closes the BufferedReader
+     * @throws IOException
+     * <pre>
+     *  PRE: A BufferedReader has to be open
+     *  POST: The BufferedReader is closed
+     *</pre>
+     */
     public void closeFile() throws IOException {
-        this.br.close();
+        br.close();
     }
 }
