@@ -28,7 +28,9 @@ public class Controller {
             gui = new GUI(fields, Color.CYAN);
         }
         //Get number of players
-        int playerCount = gui.getUserInteger("Type in number of players (2-4)",2,4);
+        int playerCount = 0;
+        while (playerCount > 4 || playerCount < 2)
+            playerCount = gui.getUserInteger("Type in number of players (2-4)",2,4);
         PlayerList playerList = new PlayerList(new GUI_Player[playerCount]);
         MoveCar mc = new MoveCar(playerCount);
 
