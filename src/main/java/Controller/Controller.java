@@ -24,7 +24,8 @@ public class Controller {
         String language = gui.getUserSelection("Choose language","English","Danish");
         if (!language.equalsIgnoreCase("english")){
             gui.close();
-            gui = new GUI(createTiles.createNewTiles(), Color.CYAN);
+            fields = createTiles.createNewTiles();
+            gui = new GUI(fields, Color.CYAN);
         }
         //Get number of players
         int playerCount = gui.getUserInteger("Type in number of players (2-4)",2,4);
