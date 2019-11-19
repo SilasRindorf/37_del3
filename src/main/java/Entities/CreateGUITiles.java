@@ -4,17 +4,19 @@ import gui_fields.*;
 import java.awt.*;
 import java.io.IOException;
 
-public class CreateTiles {
+public class CreateGUITiles {
     private GUI_Field[] fields;
     private ReadFile rf = new ReadFile();
+    private final int FIELDSIZE = 24;
+    private boolean ownable;
     public GUI_Field[] createNewTiles() throws Exception {
         return createNewTiles("english");
     }
     public GUI_Field[] createNewTiles(String language) throws Exception {
         rf.openFile("language/" + language + "/createFieldsText.txt");
-        GUI_Field[] fields = new GUI_Field[24];
+        GUI_Field[] fields = new GUI_Field[FIELDSIZE];
         int j = 0;
-        for (int i = 0; i < fields.length; i++) {
+        for (int i = 0; i < FIELDSIZE; i++) {
             if (i == 0) {
                 fields[i] = new GUI_Start();
                 setText(fields[i], "start");
@@ -50,7 +52,15 @@ public class CreateTiles {
         this.fields = fields;
     }
 
+    public void setOwnable(boolean ownable) {
+        this.ownable = ownable;
+    }
+
     public GUI_Field[] getFields() {
         return fields;
+    }
+
+    public boolean isOwnable() {
+        return ownable;
     }
 }

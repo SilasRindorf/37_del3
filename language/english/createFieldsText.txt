@@ -64,6 +64,7 @@ STREET6
 Title
 SubText
 Description
+Color
 
 STREET7
 Title

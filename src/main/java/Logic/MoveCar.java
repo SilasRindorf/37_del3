@@ -1,7 +1,7 @@
 package Logic;
 
-import gui_fields.GUI_Field;
-import gui_fields.GUI_Player;
+import Entities.Entity_Player;
+import Entities.Entity_Tiles;
 
 public class MoveCar {
     private int[] carPositions;
@@ -10,16 +10,16 @@ public class MoveCar {
         carPositions = new int[amountOfPlayers];
     }
 
-    public void move(GUI_Player player, int movement, GUI_Field[] fields){
-        fields[carPositions[player.getNumber()]].setCar(player,false);
-        carPositions[player.getNumber()] += movement;
-        if (carPositions[player.getNumber()] >= fields.length){
-            carPositions[player.getNumber()] -= fields.length;
+    public void move(Entity_Player player, int movement, Entity_Tiles[] fields){
+        //fields[carPositions[player.getId()]].setCar(player,false);
+        carPositions[player.getId()] += movement;
+        if (carPositions[player.getId()] >= fields.length){
+            carPositions[player.getId()] -= fields.length;
             passedStart = true;
         }
         else
             passedStart = false;
-        fields[carPositions[player.getNumber()]].setCar(player, true);
+        //fields[carPositions[player.getId()]].setCar(player, true);
     }
 
     public boolean isPassedStart() {
