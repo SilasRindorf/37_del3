@@ -6,42 +6,41 @@ import java.io.IOException;
 
 public class CreateTiles {
     private GUI_Field[] fields;
+    private ReadFile rf = new ReadFile();
     public GUI_Field[] createNewTiles() throws Exception {
         return createNewTiles("english");
     }
     public GUI_Field[] createNewTiles(String language) throws Exception {
-        ReadFile rf = new ReadFile();
         rf.openFile("language/" + language + "/createFieldsText.txt");
         GUI_Field[] fields = new GUI_Field[24];
         int j = 0;
         for (int i = 0; i < fields.length; i++) {
             if (i == 0) {
                 fields[i] = new GUI_Start();
-                setText(fields[i], "start", rf);
+                setText(fields[i], "start");
                 fields[i].setBackGroundColor(Color.green);
             } else if (i == 3 || i == 9 || i == 15 || i == 21) {
                 fields[i] = new GUI_Chance();
-                setText(fields[i], "chance", rf);
+                setText(fields[i], "chance");
                 fields[i].setBackGroundColor(Color.yellow);
             } else if (i == 6) {
                 fields[i] = new GUI_Jail();
-                setText(fields[i], "jailVisit", rf);
+                setText(fields[i], "jailVisit");
             } else if (i == 12) {
                 fields[i] = new GUI_Refuge();
-                setText(fields[i], "parking", rf);
+                setText(fields[i], "parking");
             } else if (i == 18) {
                 fields[i] = new GUI_Jail();
-                setText(fields[i], "goToJail", rf);
+                setText(fields[i], "goToJail");
             } else {
                 fields[i] = new GUI_Street("Kurger Bing", "Subtext", "Description", "200", new Color(59, 49, 1), new Color(255, 255, 255));
-                setText(fields[i], "street" + j, rf);
+                setText(fields[i], "street" + j);
                 j++;
-                GUI_Street temp = (GUI_Street) fields[i];
             }
         }
         return fields;
     }
-    private void setText(GUI_Field fields,String findWord,ReadFile rf) throws IOException {
+    private void setText(GUI_Field fields,String findWord) throws IOException {
         int j = rf.findFirstWord(findWord.toUpperCase());
         fields.setTitle(rf.fileToStringArray()[j+1]);
         fields.setSubText(rf.fileToStringArray()[j+2]);
