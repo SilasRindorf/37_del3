@@ -31,17 +31,14 @@ public class Controller {
         int playerCount = 0;
         while (playerCount > 4 || playerCount < 2)
             playerCount = gui.getUserInteger("Type in number of players (2-4)",2,4);
-        PlayerList playerList = new PlayerList(new GUI_Player[playerCount]);
+        PlayerList playerList = new PlayerList(playerCount);
         MoveCar mc = new MoveCar(playerCount);
 
         //Initializing players
         for (int i = 0; i < playerCount; i++) {
             String name = gui.getUserString("Input player " + (i + 1) + "'s name");
-            String playerName = creator.createPlayerName(name, i+1); // lægger 1 til index 0.
-            //If another player already has a Car colored the same as the new car create new car
-            GUI_Car car = creator.createCar(i, playerList.getPlayers());
-            playerList.getPlayers()[i] = new GUI_Player(playerName, 1000, car);
-            gui.addPlayer(playerList.getPlayers()[i]);
+            playerList.getPlayer(i).setName(creator.createPlayerName(name, i+1));
+            gui.addPlayer(playerList.getPlayer(i));
         }
 
         //Put players on start

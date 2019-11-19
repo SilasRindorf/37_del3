@@ -1,9 +1,6 @@
 package Logic;
-
 import gui_fields.GUI_Car;
 import gui_fields.GUI_Player;
-import java.util.Random;
-import java.awt.*;
 
 public class Creator {
     public GUI_Car createCar(int maxCurrentPlayers, GUI_Player[] players){
@@ -20,7 +17,5 @@ public class Creator {
     public String createPlayerName(String name, int playerNumber){ //method
         String stringBuild = "Player " + playerNumber + " " + name; //build of string in method
         return stringBuild; //what will be returned to the method call in the Controller class.
-
-
     }
 }
