@@ -1,14 +1,13 @@
 package Controller;
 import Dice.*;
 import Entities.PlayerList;
-import Logic.Creator;
+import Entities.Creator;
 import Logic.MoveCar;
-import Logic.Tiles.CreateTiles;
+import Entities.CreateTiles;
 import gui_fields.*;
 import gui_main.GUI;
 
 import java.awt.*;
-import java.io.FileNotFoundException;
 
 public class Controller {
 
@@ -34,10 +33,10 @@ public class Controller {
         PlayerList playerList = new PlayerList(playerCount);
         MoveCar mc = new MoveCar(playerCount);
 
-        //Initializing players
+        //Give players a name
         for (int i = 0; i < playerCount; i++) {
-            String name = gui.getUserString("Input player " + (i + 1) + "'s name");
-            playerList.getPlayer(i).setName(creator.createPlayerName(name, i+1));
+            String name = gui.getUserString("Input " + playerList.getPlayer(i).getName() +  "'s name");
+            playerList.getPlayer(i).setName(playerList.getPlayer(i).getName() + " " + name);
             gui.addPlayer(playerList.getPlayer(i));
         }
 
@@ -45,8 +44,8 @@ public class Controller {
         for (GUI_Player player : playerList.getPlayers()) {
             fields[0].setCar(player, true);
         }
-
-        //Controller.Controller.Game loop
+        //TODO Game loop needs refactoring
+        //Game loop
         while (true) {
             //Dice throw and move player
             for (GUI_Player player : playerList.getPlayers()) {
@@ -57,14 +56,13 @@ public class Controller {
                 gui.setDie(dice.getEyes());
 
                 mc.move(player, dice.getEyes(), fields);
-                //TODO change MoveCar, who crosses start and who gets money
                 if (mc.isPassedStart())
                     player.setBalance(player.getBalance() + 200);
 
                 gui.showMessage(fields[mc.getCarPosition(player.getNumber())].getDescription());
 
                 //For testing
-                System.out.println(fields[mc.getCarPosition(player.getNumber())].toString());
+                //System.out.println(fields[mc.getCarPosition(player.getNumber())].toString());
                 if (player.getBalance() <= 0){
                     return;
                 }
@@ -72,5 +70,4 @@ public class Controller {
             }
         }
     }
-
 }

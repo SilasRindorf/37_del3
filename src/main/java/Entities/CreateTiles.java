@@ -1,4 +1,4 @@
-package Logic.Tiles;
+package Entities;
 import Logic.ReadFile;
 import gui_fields.*;
 import java.awt.*;

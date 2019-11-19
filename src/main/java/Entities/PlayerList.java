@@ -1,5 +1,4 @@
 package Entities;
-import Logic.Creator;
 import gui_fields.GUI_Car;
 import gui_fields.GUI_Player;
 public class PlayerList {
@@ -9,7 +8,7 @@ public class PlayerList {
         Creator creator = new Creator();
         for(int i = 0; i < players.length; i++){
             GUI_Car car = creator.createCar(i, players);
-            players[i] = new GUI_Player("",1000,car);
+            players[i] = new GUI_Player("Player " + (i+1),1000,car);
         }
     }
 
