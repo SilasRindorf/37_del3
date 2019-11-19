@@ -36,6 +36,7 @@ public class CreateTiles {
                 fields[i] = new GUI_Street("Kurger Bing", "Subtext", "Description", "200", new Color(59, 49, 1), new Color(255, 255, 255));
                 setText(fields[i], "street" + j, rf);
                 j++;
+                GUI_Street temp = (GUI_Street) fields[i];
             }
         }
         return fields;
