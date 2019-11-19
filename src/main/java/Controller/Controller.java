@@ -1,7 +1,7 @@
 package Controller;
 import Dice.*;
 import Entities.*;
-import Logic.MoveCar;
+import Logic.Tiles.Logic_Field;
 import gui_fields.*;
 import gui_main.GUI;
 
@@ -11,8 +11,8 @@ public class Controller {
 
     public void playGame() throws Exception {
         //Setup for game
-        CreateGUITiles createGUITiles = new CreateGUITiles();
-        GUI gui = new GUI(createGUITiles.createNewTiles(),Color.CYAN);
+        CreateLogicTiles createLogicTiles = new CreateLogicTiles();
+        GUI gui = new GUI();
         Dice dice = new Dice(6);
         GUI_Field[] fields = gui.getFields();
 
@@ -20,7 +20,7 @@ public class Controller {
         String language = gui.getUserSelection("Choose language","English","Danish");
         if (!language.equalsIgnoreCase("english")){
             gui.close();
-            fields = createGUITiles.createNewTiles();
+            fields = createLogicTiles.createNewTiles();
             gui = new GUI(fields, Color.CYAN);
         }
         //Get number of players
@@ -30,13 +30,12 @@ public class Controller {
         PlayerList playerList = new PlayerList(playerCount);
         PlayerController pc = new PlayerController(playerCount,gui);
         //MoveCar mc = new MoveCar(playerCount);
-
+        GUI_Street street = new GUI_Street();
         //Give players a name
         for (int i = 0; i < playerCount; i++) {
             String name = gui.getUserString("Input player " + playerList.getPlayer(i).getName() +  "'s name");
             playerList.getPlayer(i).setName("Player " + playerList.getPlayer(i).getName() + " " + name);
             pc.addPlayers(playerList.getPlayer(i).getName());
-            //gui.addPlayer(playerList.getPlayer(i));
         }
 
         //Put players on start
