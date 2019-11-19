@@ -4,10 +4,10 @@ import gui_fields.GUI_Car;
 import gui_fields.GUI_Player;
 import gui_main.GUI;
 
-public class PlayerController {
+public class ControllerPlayer {
     private int amountOfPlayers;
     private GUI GUI;
-    public PlayerController(int amountOfPlayers,GUI GUI){
+    public ControllerPlayer(int amountOfPlayers, GUI GUI){
         this.amountOfPlayers = amountOfPlayers;
         this.GUI = GUI;
     }

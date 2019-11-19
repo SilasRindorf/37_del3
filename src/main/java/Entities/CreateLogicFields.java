@@ -5,7 +5,7 @@ import Logic.Tiles.*;
 import java.awt.*;
 import java.io.IOException;
 
-public class CreateLogicTiles {
+public class CreateLogicFields {
     private Logic_Field[] fields;
     private ReadFile rf = new ReadFile();
 

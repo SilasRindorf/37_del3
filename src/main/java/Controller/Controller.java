@@ -1,7 +1,6 @@
 package Controller;
 import Dice.*;
 import Entities.*;
-import Logic.Tiles.Logic_Field;
 import gui_fields.*;
 import gui_main.GUI;
 
@@ -11,16 +10,14 @@ public class Controller {
 
     public void playGame() throws Exception {
         //Setup for game
-        CreateLogicTiles createLogicTiles = new CreateLogicTiles();
-        GUI gui = new GUI();
+        ControllerBoard board = new ControllerBoard();
+        GUI gui = new GUI(board.getGui_fields(),Color.cyan);
         Dice dice = new Dice(6);
-        GUI_Field[] fields = gui.getFields();
-
         //Choose language
         String language = gui.getUserSelection("Choose language","English","Danish");
         if (!language.equalsIgnoreCase("english")){
             gui.close();
-            fields = createLogicTiles.createNewTiles();
+            fields = board.getGui_fields();
             gui = new GUI(fields, Color.CYAN);
         }
         //Get number of players
@@ -28,7 +25,7 @@ public class Controller {
         while (playerCount > 4 || playerCount < 2)
             playerCount = gui.getUserInteger("Type in number of players (2-4)",2,4);
         PlayerList playerList = new PlayerList(playerCount);
-        PlayerController pc = new PlayerController(playerCount,gui);
+        ControllerPlayer pc = new ControllerPlayer(playerCount,gui);
         //MoveCar mc = new MoveCar(playerCount);
         GUI_Street street = new GUI_Street();
         //Give players a name
