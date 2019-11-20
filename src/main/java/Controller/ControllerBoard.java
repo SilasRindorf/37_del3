@@ -11,12 +11,16 @@ public class ControllerBoard {
         Logic_Field[] logic_fields = createLogicFields.createNewTiles();
         gui_fields = new GUI_Field[logic_fields.length];
         for (int i = 0; i < logic_fields.length; i++) {
-            if (logic_fields[i] instanceof Logic_Street)
+            if (logic_fields[i] instanceof Logic_Street) {
                 gui_fields[i] = new GUI_Street();
+                gui_fields[i].setBackGroundColor(logic_fields[i].getBackGroundColor());
+            }
             else if (logic_fields[i] instanceof Logic_Jail)
                 gui_fields[i] = new GUI_Jail();
-            else if (logic_fields[i] instanceof Logic_Chance)
+            else if (logic_fields[i] instanceof Logic_Chance) {
                 gui_fields[i] = new GUI_Chance();
+                gui_fields[i].setBackGroundColor(logic_fields[i].getBackGroundColor());
+            }
             else if (logic_fields[i] instanceof Logic_Refuge)
                 gui_fields[i] = new GUI_Refuge();
             else if (logic_fields[i] instanceof Logic_Start)
