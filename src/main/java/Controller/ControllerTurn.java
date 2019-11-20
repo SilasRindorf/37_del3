@@ -25,21 +25,21 @@ public class ControllerTurn {
             Dice dice = new Dice(6);
             ControllerMove CM = new ControllerMove(playerList);
             CM.moveCar(dice.getEyes());
-            GUI.showMessage(player.getName() + " is rolling the dices!");
+            GUI.showMessage(playerList.getPlayer(i).getName() + " is rolling the dices!");
 
             dice.rollDice();
 
             GUI.setDie(dice.getEyes());
+            CM.moveCar(dice.getEyes());
+            //CM.ControllerMove(player, dice.getEyes(), fields);
+            if (CM.getMovement().isPassedStart())
+                playerList.getPlayer(i).setBalance(playerList.getPlayer(i).getBalance() + 200);
 
-            CM.move(player, dice.getEyes(), fields);
-            if (mc.isPassedStart())
-                player.setBalance(player.getBalance() + 200);
-
-            gui.showMessage(fields[mc.getCarPosition(player.getNumber())].getDescription());
+            GUI.showMessage(GUI.getFields()[CM.getMovement().getCarPosition(playerList.getPlayer(i).getId())].getDescription());
 
             //For testing
             //System.out.println(fields[mc.getCarPosition(player.getNumber())].toString());
-            if (player.getBalance() <= 0){
+            if (playerList.getPlayer(i).getBalance() <= 0){
                 return;
             }
 
