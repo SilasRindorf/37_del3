@@ -4,9 +4,9 @@ import Entities.CreateLogicFields;
 import Logic.Tiles.*;
 import gui_fields.*;
 
-public class ControllerBoard {
+class ControllerBoard {
     private GUI_Field[] gui_fields;
-    public ControllerBoard() throws Exception {
+    ControllerBoard() throws Exception {
         CreateLogicFields createLogicFields = new CreateLogicFields();
         Logic_Field[] logic_fields = createLogicFields.createNewTiles();
         gui_fields = new GUI_Field[logic_fields.length];
@@ -31,7 +31,7 @@ public class ControllerBoard {
         }
     }
 
-    public GUI_Field[] getGui_fields() {
+    GUI_Field[] getGui_fields() {
         return gui_fields;
     }
 }

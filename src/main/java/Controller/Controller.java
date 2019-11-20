@@ -1,7 +1,7 @@
 package Controller;
-import Dice.*;
-import Entities.*;
-import gui_fields.*;
+import  Dice.*;
+import Entities.PlayerList;
+import gui_fields.GUI_Field;
 import gui_main.GUI;
 
 import java.awt.*;
@@ -11,9 +11,11 @@ public class Controller {
     public void playGame() throws Exception {
         //Setup for game
         ControllerBoard board = new ControllerBoard();
-        GUI gui = new GUI(board.getGui_fields(),Color.cyan);
+        GUI gui = new GUI(board.getGui_fields(),Color.CYAN);
         Dice dice = new Dice(6);
         GUI_Field[] fields = gui.getFields();
+
+
         //Choose language
         String language = gui.getUserSelection("Choose language","English","Danish");
         if (!language.equalsIgnoreCase("english")){
@@ -21,6 +23,8 @@ public class Controller {
             fields = board.getGui_fields();
             gui = new GUI(fields, Color.CYAN);
         }
+
+
         //Get number of players
         int playerCount = 0;
         while (playerCount > 4 || playerCount < 2)
@@ -28,7 +32,8 @@ public class Controller {
         PlayerList playerList = new PlayerList(playerCount);
         ControllerPlayer pc = new ControllerPlayer(gui);
         //MoveCar mc = new MoveCar(playerCount);
-        GUI_Street street = new GUI_Street();
+
+
         //Give players a name
         for (int i = 0; i < playerCount; i++) {
             String name = gui.getUserString("Input player " + playerList.getPlayer(i).getName() +  "'s name");
@@ -36,18 +41,20 @@ public class Controller {
         }
         pc.addPlayers(playerList);
 
+
         //Put players on start
         for (int i = 0; i < playerList.getPlayers().length; i++) {
             fields[0].setCar(pc.getPlayers()[i], true);
         }
+
+
         //TODO Game loop needs refactoring
         //Game loop
         while (true) {
             //Dice throw and move player
             for (int i=0;i < playerList.getPlayers().length; i++) {
-                Entity_Player player = playerList.getPlayer(i);
-                player.setBalance(player.getBalance() - 200);
-                gui.showMessage(player.getName() + " is rolling the dices!");
+                playerList.getPlayer(i).setBalance(playerList.getPlayer(i).getBalance() - 50);
+                gui.showMessage(playerList.getPlayer(i).getName() + " is rolling the dices!");
 
                 dice.rollDice();
 
@@ -62,8 +69,8 @@ public class Controller {
 
                 //For testing
                 //System.out.println(fields[mc.getCarPosition(player.getNumber())].toString());
-                if (player.getBalance() <= 0){
-                    gui.showMessage(player.getName() + " has no money left and lost");
+                if (playerList.getPlayer(i).getBalance() <= 0){
+                    gui.showMessage(playerList.getPlayer(i).getName() + " has no money left and lost");
                     return;
                 }
             }

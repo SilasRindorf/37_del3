@@ -36,8 +36,10 @@ public class CreateLogicFields {
                 fields[i] = new Logic_Jail();
                 setText(fields[i], "goToJail");
             } else {
-                fields[i] = new Logic_Street("Kurger Bing", "Subtext", "Description", 200, new Color(59, 49, 1), new Color(255, 255, 255));
+                //fields[i] = new Logic_Street("Kurger Bing", "Subtext", "Description", 200, new Color(59, 49, 1), new Color(255, 255, 255));
+                fields[i] = new Logic_Street();
                 setText(fields[i], "street" + j);
+                fields[i].setBackGroundColor(new Color (rf.findFirstWord("street" + j),rf.findFirstWord("street" + j)*2,(int) (rf.findFirstWord("street" + j)*1.5)));
                 j++;
             }
         }

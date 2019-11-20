@@ -8,6 +8,7 @@ public abstract class Logic_Field {
     private String description;
     private Color backGroundColor;
     private Color border;
+    private boolean car = false;
 
     public Logic_Field(String title, String subText, String description) {
         this.title = title;
@@ -52,5 +53,13 @@ public abstract class Logic_Field {
 
     public void setBackGroundColor(Color backGroundColor) {
         this.backGroundColor = backGroundColor;
+    }
+
+    public boolean isCar() {
+        return car;
+    }
+
+    public void setCar(boolean car) {
+        this.car = car;
     }
 }

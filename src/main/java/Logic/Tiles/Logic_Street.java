@@ -28,6 +28,10 @@ public class Logic_Street extends Logic_Field {
         this.rent = rent;
     }
 
+    public Logic_Street() {
+        super("Title","Subtext","Description");
+    }
+
 
     public void setOwnerID(int ownerID){
         this.ownerID = ownerID;
