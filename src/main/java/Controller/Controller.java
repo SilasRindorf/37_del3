@@ -20,6 +20,7 @@ public class Controller {
         String language = gui.getUserSelection("Choose language","English","Danish");
         if (!language.equalsIgnoreCase("english")){
             gui.close();
+            board.createBoard(language);
             fields = board.getGui_fields();
             gui = new GUI(fields, Color.CYAN);
         }

@@ -7,8 +7,11 @@ import gui_fields.*;
 class ControllerBoard {
     private GUI_Field[] gui_fields;
     ControllerBoard() throws Exception {
+        createBoard("english");
+    }
+    public void createBoard(String language) throws Exception {
         CreateLogicFields createLogicFields = new CreateLogicFields();
-        Logic_Field[] logic_fields = createLogicFields.createNewTiles();
+        Logic_Field[] logic_fields = createLogicFields.createNewTiles(language);
         gui_fields = new GUI_Field[logic_fields.length];
         for (int i = 0; i < logic_fields.length; i++) {
             if (logic_fields[i] instanceof Logic_Street) {

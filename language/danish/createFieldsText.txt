@@ -18,87 +18,87 @@ Free parking
 Free parking
 You get a free turn
 
-GOTOjAIL
+GOTOJAIL
 Jail
 Jail
 You go to jail for your crimes and lose 1 turn
 
 STREET0
-Title
-SubText
-Description
+Title - Dansk
+SubText - Dansk
+Description - Dansk
 
 STREET1
-Title
-SubText
-Description
+Title - Dansk
+SubText - Dansk
+Description - Dansk
 
 STREET2
-Title
-SubText
-Description
+Title - Dansk
+SubText - Dansk
+Description - Dansk
 
 STREET3
-Title
-SubText
-Description
+Title - Dansk
+SubText - Dansk
+Description - Dansk
 
 STREET4
-Title
-SubText
-Description
+Title - Dansk
+SubText - Dansk
+Description - Dansk
 
 STREET5
-Title
-SubText
-Description
+Title - Dansk
+SubText - Dansk
+Description - Dansk
 
 STREET6
-Title
-SubText
-Description
+Title - Dansk
+SubText - Dansk
+Description - Dansk
 
 STREET7
-Title
-SubText
-Description
+Title - Dansk
+SubText - Dansk
+Description - Dansk
 
 STREET8
-Title
-SubText
-Description
+Title - Dansk
+SubText - Dansk
+Description - Dansk
 
 STREET9
-Title
-SubText
-Description
+Title - Dansk
+SubText - Dansk
+Description - Dansk
 
 STREET10
-Title
-SubText
-Description
+Title - Dansk
+SubText - Dansk
+Description - Dansk
 
 STREET11
-Title
-SubText
-Description
+Title - Dansk
+SubText - Dansk
+Description - Dansk
 
 STREET12
-Title
-SubText
-Description
+Title - Dansk
+SubText - Dansk
+Description - Dansk
 
 STREET13
-Title
-SubText
-Description
+Title - Dansk
+SubText - Dansk
+Description - Dansk
 
 STREET14
-Title
-SubText
-Description
+Title - Dansk
+SubText - Dansk
+Description - Dansk
 
 STREET15
-Title
-SubText
-Description
+Title - Dansk
+SubText - Dansk
+Description - Dansk
