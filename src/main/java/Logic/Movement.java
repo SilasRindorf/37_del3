@@ -1,33 +1,27 @@
 package Logic;
 
 import Entities.Entity_Player;
-import Entities.Entity_Tiles;
 
 public class Movement {
     private int[] carPositions;
     private boolean passedStart;
-    private Entity_Tiles[] fields;
+    private int amountOfFields;
     public Movement(int amountOfPlayers){
         carPositions = new int[amountOfPlayers];
+        for (int i = 0; i < amountOfPlayers; i++) {
+            carPositions[i] = 0;
+            System.out.println(getCarPosition(i));
+        }
+
     }
     public void move(Entity_Player player, int movement){
-        //fields[carPositions[player.getId()]].setCar(player,false);
         carPositions[player.getId()] += movement;
-        if (carPositions[player.getId()] >= fields.length){
-            carPositions[player.getId()] -= fields.length;
+        if (carPositions[player.getId()] >= amountOfFields){
+            carPositions[player.getId()] -= amountOfFields;
             passedStart = true;
         }
         else
             passedStart = false;
-        //fields[carPositions[player.getId()]].setCar(player, true);
-    }
-
-    public Entity_Tiles[] getFields() {
-        return fields;
-    }
-
-    public void setFields(Entity_Tiles[] fields) {
-        this.fields = fields;
     }
 
     public boolean isPassedStart() {
@@ -37,6 +31,7 @@ public class Movement {
     public int getCarPosition(int carID) {
         return carPositions[carID];
     }
+    public void setAmountOfFields(int amountOfFields){this.amountOfFields = amountOfFields;}
 
     public int[] getCarPositions() {
         return carPositions;

@@ -32,7 +32,7 @@ public class Controller {
             playerCount = gui.getUserInteger("Type in number of players (2-4)",2,4);
         PlayerList playerList = new PlayerList(playerCount);
         ControllerPlayer pc = new ControllerPlayer(gui);
-        //MoveCar mc = new MoveCar(playerCount);
+        //ControllerMove cm = new ControllerMove(playerList);
 
 
         //Give players a name
@@ -50,26 +50,33 @@ public class Controller {
 
 
         //TODO Game loop needs refactoring
+        ControllerMove cm = new ControllerMove(playerList);
+        cm.setAmountOfFields(fields.length);
         //Game loop
         while (true) {
             //Dice throw and move player
             for (int i=0;i < playerList.getPlayers().length; i++) {
-                playerList.getPlayer(i).setBalance(playerList.getPlayer(i).getBalance() - 50);
+
                 gui.showMessage(playerList.getPlayer(i).getName() + " is rolling the dices!");
-
                 dice.rollDice();
-
                 gui.setDie(dice.getEyes());
-                pc.updatePlayer(playerList,i);
 
-                //mc.move(player, dice.getEyes(), fields);
-                //if (mc.isPassedStart())
-                  //  player.setBalance(player.getBalance() + 200);
+                gui.getFields()[cm.getMovement().getCarPosition(i)].setCar(pc.getPlayers()[i],false);
+                cm.moveCar(i,dice.getEyes());
+
+                gui.getFields()[cm.getMovement().getCarPosition(i)].setCar(pc.getPlayers()[i],true);
+
+                gui.showMessage(gui.getFields()[cm.getMovement().getCarPosition(playerList.getPlayer(i).getId())].getDescription());
+
+                /*cm.moveCar(i, dice.getEyes());
+                if (cm.getMovement().isPassedStart())
+                    playerList.getPlayer(i).setBalance(playerList.getPlayer(i).getBalance() + 200);*/
 
                 //gui.showMessage(fields[mc.getCarPosition(player.getId())].getDescription());
 
                 //For testing
                 //System.out.println(fields[mc.getCarPosition(player.getNumber())].toString());
+                pc.updatePlayer(playerList,i);
                 if (playerList.getPlayer(i).getBalance() <= 0){
                     gui.showMessage(playerList.getPlayer(i).getName() + " has no money left and lost");
                     return;
