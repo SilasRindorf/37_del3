@@ -1,104 +1,104 @@
 START
 Start
-Receive 200M
-You start here and each time you pass the start you get 200M
+Modtag 200M
+Du har passeret start og modtager M200!
 
 CHANCE
 Chance
-Draw a chance card
-You draw a card that has a random effect
+Træk et chancekort
+Du er landet på chancekortet og trækker et tilfældigt kort.
 
 JAILVISIT
-Jail
-Jail
-You can visit your friends or enemies in the jail
+På besøg i fængsel
+På besøg i fængsel
+Du er landet på besøg i fængsel, og besøger din gamle ven.
 
 PARKING
-Free parking
-Free parking
-You get a free turn
+Gratis parkering
+Gratis parkering
+Du er landet på gratis parkering, og stopper for at nyde den gode udsigt og de små ting i livet.
 
-GOTOjAIL
-Jail
-Jail
-You go to jail for your crimes and lose 1 turn
+GOTOJAIL
+Gå i fængsel
+Gå i fængsel
+Du er landet på gå i fængsel og får en tur i brummen for uanstændig opførsel.
 
 STREET0
-Title
-SubText
-Description
+Kurger Bing
+M100
+Du køber Kurger Bing for M100.
 
 STREET1
-Title
-SubText
-Description
+Fentucky Kried Ficken
+M100
+Du køber Fentucky Kried Ficken for M100.
 
 STREET2
-Title
-SubText
-Description
+50 Cents Candy Shop
+M200
+Du køber 50 Cents Candy Shop for M200.
 
 STREET3
-Title
-SubText
-Description
+SnackHack
+M200
+Du køber SnackHack for M200.
 
 STREET4
-Title
-SubText
-Description
+Mousiana
+M300
+Du køber Mousiana for M300.
 
 STREET5
-Title
-SubText
-Description
+Statsbiblioteket
+M300
+Du køber Statsbiblioteket for M300.
 
 STREET6
-Title
-SubText
-Description
+Nielses Netcafé
+M400
+Du køber Nielses Netcafé for M400.
 
 STREET7
-Title
-SubText
-Description
+Børges Biograf
+M400
+Du køber Børges Biograf for M400.
 
 STREET8
-Title
-SubText
-Description
+Turbo Tivoli
+M450
+Du køber Turbo Tivoli for M450.
 
 STREET9
-Title
-SubText
-Description
+Dr. Pillefingers Legeplads
+M450
+Du køber Dr. Pillefingers Legeplads for M450.
 
 STREET10
-Title
-SubText
-Description
+Gadgets for Animals
+M500
+Du køber Gadgets for Animals for M500.
 
 STREET11
-Title
-SubText
-Description
+Dannys Dyr
+M500
+Du køber Dannys Dyr for M500.
 
 STREET12
-Title
-SubText
-Description
+Harambes Zoo
+M600
+Du køber Harambes Zoo for M600.
 
 STREET13
-Title
-SubText
-Description
+Bajer og Bowling
+M600
+Du køber Bajer og Bowling for M600.
 
 STREET14
-Title
-SubText
-Description
+Københavnskanaler
+M650
+Du køber Københavnskanaler for M650.
 
 STREET15
-Title
-SubText
-Description
+Kystens Svømmehal
+M650
+Du køber Kystens Svømmehal for M650.

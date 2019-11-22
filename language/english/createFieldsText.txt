@@ -1,3 +1,10 @@
+//Template
+SEARCHWORD
+Title
+Subtitle
+Description
+//End template
+
 START
 Start
 Receive 200M
@@ -57,6 +64,7 @@ STREET6
 Title
 SubText
 Description
+Color
 
 STREET7
 Title

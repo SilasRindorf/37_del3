@@ -106,6 +106,49 @@ public class ReadFile {
         return 0;
     }
     /**
+     * overload findFirstWord, start from a Integer chosen. If the Integer is less than 0 or less than the file length
+     * then the Integer is set to 0
+     */
+    public int findFirstWord(String searchWord,int startLine) throws IOException {
+        String[] strings = fileToStringArray();
+        if (strings.length < startLine || startLine < 0)
+                startLine = 0;
+        try {
+            for (int j = startLine; j < strings.length; j++) {
+                if (strings[j].equals(searchWord.toUpperCase()))
+                    return j;
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return 0;
+    }
+    /**
+     * overload findFirstWord, start from a chosen Integer. If the Integer is less than 0 or less than the file length
+     * then the Integer is set to 0. Skip the found word a chosen amount of time
+     * @return an Integer
+     * @throws IOException
+     * <pre>
+     *  PRE: A file has the search word in UPPERCASE
+     *  POST: An Integer is made which is the amount of lines down the search word is
+     *</pre>
+     */
+    public int findWord(String searchWord,int skipAmountOfWords) throws IOException {
+        String[] strings = fileToStringArray();
+        try {
+            int temp = 0;
+            for (int j = 0; j < strings.length; j++) {
+                if (strings[j].equals(searchWord.toUpperCase()))
+                    temp++;
+                    if (temp == skipAmountOfWords)
+                        return j;
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return 0;
+    }
+    /**
      * Closes the BufferedReader
      * @throws IOException
      * <pre>

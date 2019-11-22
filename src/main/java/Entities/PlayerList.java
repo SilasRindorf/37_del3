@@ -1,18 +1,26 @@
 package Entities;
-
-import gui_fields.GUI_Player;
-
 public class PlayerList {
-    private GUI_Player[] players;
-    public PlayerList(GUI_Player[] players){
-        this.players = players;
+    private Entity_Player[] players;
+    public PlayerList(int playerCount){
+        players = new Entity_Player[playerCount];
+        for (int i = 0; i < playerCount; i++) {
+            players[i] = new Entity_Player(i);
+        }
+
     }
 
-    public GUI_Player[] getPlayers() {
+    public Entity_Player[] getPlayers() {
         return players;
     }
-
-    public void setPlayers(GUI_Player[] players) {
+    public String[] getPlayerNames(){
+        String[] str = new String[players.length];
+        for (int i = 0; i < players.length; i++){
+            str[i] = players[i].getName();
+        }
+        return str;
+    }
+    public Entity_Player getPlayer(int playerID){return players[playerID];}
+    public void setPlayers(Entity_Player[] players) {
         this.players = players;
     }
 }
