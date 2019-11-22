@@ -67,6 +67,7 @@ STREET8
 Turbo Tivoli
 M450
 Du køber Turbo Tivoli for M450.
+450
 
 STREET9
 Dr. Pillefingers Legeplads

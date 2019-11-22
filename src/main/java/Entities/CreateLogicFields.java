@@ -16,31 +16,37 @@ public class CreateLogicFields {
         rf.openFile("language/" + language + "/createFieldsText.txt");
         final int FIELDSIZE = 24;
         fields = new Logic_Field[FIELDSIZE];
-        int j = 0;
-        for (int i = 0; i < FIELDSIZE; i++) {
-            if (i == 0) {
-                fields[i] = new Logic_Start();
-                setText(fields[i], "start");
-                fields[i].setBackGroundColor(Color.green);
-            } else if (i == 3 || i == 9 || i == 15 || i == 21) {
-                fields[i] = new Logic_Chance();
-                setText(fields[i], "chance");
-                fields[i].setBackGroundColor(Color.yellow);
-            } else if (i == 6) {
-                fields[i] = new Logic_Jail();
-                setText(fields[i], "jailVisit");
-            } else if (i == 12) {
-                fields[i] = new Logic_Refuge();
-                setText(fields[i], "parking");
-            } else if (i == 18) {
-                fields[i] = new Logic_Jail();
-                setText(fields[i], "goToJail");
+        int streetCount = 0;
+        for (int fieldCount = 0; fieldCount < FIELDSIZE; fieldCount++) {
+            if (fieldCount == 0) {
+                fields[fieldCount] = new Logic_Start();
+                setText(fields[fieldCount], "start");
+                fields[fieldCount].setBackGroundColor(Color.green);
+            } else if (fieldCount == 3 || fieldCount == 9 || fieldCount == 15 || fieldCount == 21) {
+                fields[fieldCount] = new Logic_Chance();
+                setText(fields[fieldCount], "chance");
+                fields[fieldCount].setBackGroundColor(Color.yellow);
+            } else if (fieldCount == 6) {
+                fields[fieldCount] = new Logic_Jail();
+                setText(fields[fieldCount], "jailVisit");
+            } else if (fieldCount == 12) {
+                fields[fieldCount] = new Logic_Refuge();
+                setText(fields[fieldCount], "parking");
+            } else if (fieldCount == 18) {
+                fields[fieldCount] = new Logic_Jail();
+                setText(fields[fieldCount], "goToJail");
             } else {
+                int[] prices = new int [20];
+                for (int k = 0; k < prices.length; k++) {
+                    prices[k] = k*10 + 100;
+                }
                 //fields[i] = new Logic_Street("Kurger Bing", "Subtext", "Description", 200, new Color(59, 49, 1), new Color(255, 255, 255));
-                fields[i] = new Logic_Street();
-                setText(fields[i], "street" + j);
-                fields[i].setBackGroundColor(new Color (rf.findFirstWord("street" + j),rf.findFirstWord("street" + j)*2,(int) (rf.findFirstWord("street" + j)*1.5)));
-                j++;
+                fields[fieldCount] = new Logic_Street();
+                setText(fields[fieldCount], "street" + streetCount);
+                Logic_Street k = (Logic_Street) fields[fieldCount];
+                k.setPropertyPrice(prices[streetCount]);
+                fields[fieldCount].setBackGroundColor(new Color (rf.findFirstWord("street" + streetCount),rf.findFirstWord("street" + streetCount)*2,(int) (rf.findFirstWord("street" + streetCount)*1.5)));
+                streetCount++;
             }
         }
         return fields;
