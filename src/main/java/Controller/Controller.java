@@ -67,11 +67,10 @@ public class Controller {
                 gui.getFields()[cm.getMovement().getCarPosition(i)].setCar(pc.getPlayers()[i],true);
 
                 gui.showMessage(gui.getFields()[cm.getMovement().getCarPosition(playerList.getPlayer(i).getId())].getDescription());
-                pc.updatePlayer(playerList,i);
 
                 if (cm.getMovement().isPassedStart())
                     playerList.getPlayer(i).setBalance(playerList.getPlayer(i).getBalance() + 200);
-
+                pc.updatePlayer(playerList,i);
                 if (playerList.getPlayer(i).getBalance() <= 0){
                     gui.showMessage(playerList.getPlayer(i).getName() + " has no money left and lost");
                     return;
