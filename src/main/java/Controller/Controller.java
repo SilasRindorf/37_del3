@@ -33,7 +33,6 @@ public class Controller {
             playerCount = gui.getUserInteger("Type in number of players (2-4)",2,4);
         PlayerList playerList = new PlayerList(playerCount);
         ControllerPlayer pc = new ControllerPlayer(gui);
-        //ControllerMove cm = new ControllerMove(playerList);
 
 
         //Give players a name
