@@ -43,8 +43,9 @@ public class CreateLogicFields {
                 //fields[i] = new Logic_Street("Kurger Bing", "Subtext", "Description", 200, new Color(59, 49, 1), new Color(255, 255, 255));
                 fields[fieldCount] = new Logic_Street();
                 setText(fields[fieldCount], "street" + streetCount);
-                Logic_Street k = (Logic_Street) fields[fieldCount];
-                k.setPropertyPrice(prices[streetCount]);
+                Logic_Street street = (Logic_Street) fields[fieldCount];
+                street.setPropertyPrice(prices[streetCount]);
+                street.setRent(prices[streetCount]/10);
                 fields[fieldCount].setBackGroundColor(new Color (rf.findFirstWord("street" + streetCount),rf.findFirstWord("street" + streetCount)*2,(int) (rf.findFirstWord("street" + streetCount)*1.5)));
                 streetCount++;
             }
