@@ -17,12 +17,18 @@
                 <updatePolicy>always</updatePolicy>
             </snapshots>
         </repository>
-    </repositories>x
+    </repositories>
         <dependencies>
             <dependency>
                 <groupId>diplomitdtu</groupId>
                 <artifactId>matadorgui</artifactId>
                 <version>3.1.7</version>
+            </dependency>
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>4.12</version>
+                <scope>test</scope>
             </dependency>
         </dependencies>
 </project>
