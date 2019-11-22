@@ -7,11 +7,12 @@ import gui_main.GUI;
 import java.awt.*;
 
 public class Controller {
+    private final Color boardColor = new Color (245,245,220);
 
     public void playGame() throws Exception {
         //Setup for game
         ControllerBoard board = new ControllerBoard();
-        GUI gui = new GUI(board.getGui_fields(),new Color (245,245,220));
+        GUI gui = new GUI(board.getGui_fields(),boardColor);
         Dice dice = new Dice(6);
         GUI_Field[] fields = gui.getFields();
 
@@ -22,7 +23,7 @@ public class Controller {
             gui.close();
             board.createBoard(language);
             fields = board.getGui_fields();
-            gui = new GUI(fields, Color.CYAN);
+            gui = new GUI(fields, boardColor);
         }
 
 
