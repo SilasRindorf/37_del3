@@ -3,6 +3,7 @@ package Controller;
 import Entities.CreateLogicFields;
 import Logic.Tiles.*;
 import gui_fields.*;
+import sun.rmi.runtime.Log;
 
 class ControllerBoard {
     private GUI_Field[] gui_fields;
@@ -15,7 +16,11 @@ class ControllerBoard {
         gui_fields = new GUI_Field[logic_fields.length];
         for (int i = 0; i < logic_fields.length; i++) {
             if (logic_fields[i] instanceof Logic_Street) {
-                gui_fields[i] = new GUI_Street();
+                GUI_Street guiStreet = new GUI_Street();
+                Logic_Street logicStreet = (Logic_Street) logic_fields[i];
+                guiStreet.setRent(logicStreet.getRent() + "M");
+                guiStreet.setRentLabel(logicStreet.getPropertyPrice() + "M");
+                gui_fields[i] = guiStreet;
                 gui_fields[i].setBackGroundColor(logic_fields[i].getBackGroundColor());
             }
             else if (logic_fields[i] instanceof Logic_Jail)
