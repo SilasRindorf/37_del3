@@ -50,6 +50,7 @@ public class Controller {
 
 
         ControllerMove cm = new ControllerMove(playerList);
+        cm.getMovement().setAmountOfFields(fields.length);
         cm.setAmountOfFields(fields.length);
         //Game loop
         while (true) {
@@ -66,15 +67,11 @@ public class Controller {
                 gui.getFields()[cm.getMovement().getCarPosition(i)].setCar(pc.getPlayers()[i],true);
 
                 gui.showMessage(gui.getFields()[cm.getMovement().getCarPosition(playerList.getPlayer(i).getId())].getDescription());
+                pc.updatePlayer(playerList,i);
 
                 if (cm.getMovement().isPassedStart())
                     playerList.getPlayer(i).setBalance(playerList.getPlayer(i).getBalance() + 200);
 
-                //gui.showMessage(fields[mc.getCarPosition(player.getId())].getDescription());
-
-                //For testing
-                //System.out.println(fields[mc.getCarPosition(player.getNumber())].toString());
-                pc.updatePlayer(playerList,i);
                 if (playerList.getPlayer(i).getBalance() <= 0){
                     gui.showMessage(playerList.getPlayer(i).getName() + " has no money left and lost");
                     return;
