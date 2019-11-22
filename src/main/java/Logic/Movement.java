@@ -10,7 +10,6 @@ public class Movement {
         carPositions = new int[amountOfPlayers];
         for (int i = 0; i < amountOfPlayers; i++) {
             carPositions[i] = 0;
-            System.out.println(getCarPosition(i));
         }
 
     }
