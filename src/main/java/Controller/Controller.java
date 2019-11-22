@@ -49,7 +49,6 @@ public class Controller {
         }
 
 
-        //TODO Game loop needs refactoring
         ControllerMove cm = new ControllerMove(playerList);
         cm.setAmountOfFields(fields.length);
         //Game loop
@@ -68,9 +67,8 @@ public class Controller {
 
                 gui.showMessage(gui.getFields()[cm.getMovement().getCarPosition(playerList.getPlayer(i).getId())].getDescription());
 
-                /*cm.moveCar(i, dice.getEyes());
                 if (cm.getMovement().isPassedStart())
-                    playerList.getPlayer(i).setBalance(playerList.getPlayer(i).getBalance() + 200);*/
+                    playerList.getPlayer(i).setBalance(playerList.getPlayer(i).getBalance() + 200);
 
                 //gui.showMessage(fields[mc.getCarPosition(player.getId())].getDescription());
 
