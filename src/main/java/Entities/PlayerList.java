@@ -8,16 +8,8 @@ public class PlayerList {
         }
 
     }
-
     public Entity_Player[] getPlayers() {
         return players;
-    }
-    public String[] getPlayerNames(){
-        String[] str = new String[players.length];
-        for (int i = 0; i < players.length; i++){
-            str[i] = players[i].getName();
-        }
-        return str;
     }
     public Entity_Player getPlayer(int playerID){return players[playerID];}
     public void setPlayers(Entity_Player[] players) {

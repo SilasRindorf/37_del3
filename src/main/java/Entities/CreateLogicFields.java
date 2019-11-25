@@ -14,10 +14,9 @@ public class CreateLogicFields {
     }
     public Logic_Field[] createNewTiles(String language) throws Exception {
         rf.openFile("language/" + language + "/createFieldsText.txt");
-        final int FIELDSIZE = 24;
-        fields = new Logic_Field[FIELDSIZE];
+        fields = new Logic_Field[24];
         int streetCount = 0;
-        for (int fieldCount = 0; fieldCount < FIELDSIZE; fieldCount++) {
+        for (int fieldCount = 0; fieldCount < fields.length; fieldCount++) {
             if (fieldCount == 0) {
                 fields[fieldCount] = new Logic_Start();
                 fields[fieldCount].setFieldID(1);
@@ -46,12 +45,12 @@ public class CreateLogicFields {
                     prices[k] = k*10 + 100;
                 }
                 //fields[i] = new Logic_Street("Kurger Bing", "Subtext", "Description", 200, new Color(59, 49, 1), new Color(255, 255, 255));
-                fields[fieldCount] = new Logic_Street();
-                fields[fieldCount].setFieldID(6);
-                setText(fields[fieldCount], "street" + streetCount);
-                Logic_Street street = (Logic_Street) fields[fieldCount];
+                Logic_Street street = new Logic_Street();
                 street.setPropertyPrice(prices[streetCount]);
                 street.setRent(prices[streetCount]/10);
+                fields[fieldCount] = street;
+                fields[fieldCount].setFieldID(6);
+                setText(fields[fieldCount], "street" + streetCount);
                 fields[fieldCount].setBackGroundColor(new Color (rf.findFirstWord("street" + streetCount),rf.findFirstWord("street" + streetCount)*2,(int) (rf.findFirstWord("street" + streetCount)*1.5)));
                 streetCount++;
             }
