@@ -19,8 +19,14 @@ public class Movement {
             carPositions[player.getId()] -= amountOfFields;
             passedStart = true;
         }
-        else
+        else {
             passedStart = false;
+        }
+        // go to jail = 18, in jail = 6
+        if (carPositions[player.getId()] == 18){
+            carPositions[player.getId()] = 6;
+            player.setInJail(true);
+        }
     }
 
     public boolean isPassedStart() {
