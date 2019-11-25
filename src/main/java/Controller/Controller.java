@@ -36,7 +36,7 @@ public class Controller {
         //Get number of players
         int playerCount = 0;
         while (playerCount > 4 || playerCount < 2)
-            playerCount = gui.getUserInteger("Type in number of players (2-4)",2,4);
+            playerCount = gui.getUserInteger(rf.fileToStringArray()[rf.findFirstWord("PLAYERCOUNT")+1],2,4);
         PlayerList playerList = new PlayerList(playerCount);
         ControllerPlayer pc = new ControllerPlayer(gui);
 

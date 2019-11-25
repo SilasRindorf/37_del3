@@ -29,7 +29,7 @@ public class CreateLogicFields {
                 setText(fields[fieldCount], "chance");
                 fields[fieldCount].setBackGroundColor(Color.yellow);
             } else if (fieldCount == 6) {
-                fields[fieldCount] = new Logic_Jail();
+                fields[fieldCount] = new Logic_Jail(3);
                 fields[fieldCount].setFieldID(3);
                 setText(fields[fieldCount], "jailVisit");
             } else if (fieldCount == 12) {
@@ -37,7 +37,7 @@ public class CreateLogicFields {
                 fields[fieldCount].setFieldID(4);
                 setText(fields[fieldCount], "parking");
             } else if (fieldCount == 18) {
-                fields[fieldCount] = new Logic_Jail();
+                fields[fieldCount] = new Logic_Jail(5);
                 fields[fieldCount].setFieldID(5);
                 setText(fields[fieldCount], "goToJail");
             } else {
