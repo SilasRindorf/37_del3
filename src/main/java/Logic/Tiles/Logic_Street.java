@@ -2,8 +2,7 @@ package Logic.Tiles;
 
 import java.awt.*;
 
-//For Bubbi
-//Jeg(Silas) har lavet de mest basic ting i klassen for at koden kan køre
+//For Bubbi & Betina
 public class Logic_Street extends Logic_Field {
     private int propertyPrice;
     private int ownerID;
