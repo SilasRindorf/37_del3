@@ -1,6 +1,7 @@
 package Controller;
 import  Dice.*;
 import Entities.PlayerList;
+import Logic.ReadFile;
 import gui_fields.GUI_Field;
 import gui_main.GUI;
 
@@ -14,6 +15,8 @@ public class Controller {
         GUI gui = new GUI(board.getGui_fields(),Color.CYAN);
         Dice dice = new Dice(6);
         GUI_Field[] fields = gui.getFields();
+        //
+        ReadFile rf = new ReadFile();
 
 
         //Choose language
@@ -24,6 +27,7 @@ public class Controller {
             fields = board.getGui_fields();
             gui = new GUI(fields, Color.CYAN);
         }
+        rf.openFile("language/" + language + "/controllerText.txt");
 
 
         //Get number of players
@@ -32,8 +36,6 @@ public class Controller {
             playerCount = gui.getUserInteger("Type in number of players (2-4)",2,4);
         PlayerList playerList = new PlayerList(playerCount);
         ControllerPlayer pc = new ControllerPlayer(gui);
-        //ControllerMove cm = new ControllerMove(playerList);
-
 
         //Give players a name
         for (int i = 0; i < playerCount; i++) {

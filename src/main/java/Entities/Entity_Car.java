@@ -15,6 +15,11 @@ public class Entity_Car {
         this.mainColor = mainColor;
         this.secondaryColor = secondaryColor;
     }
+    public void generateCar(){
+        Random rand = new Random();
+        mainColor = new Color(rand.nextInt()*255,rand.nextInt()*255 , rand.nextInt()*255);
+        secondaryColor = new Color(rand.nextInt()*255,rand.nextInt()*255 , rand.nextInt()*255);
+    }
 
     public Color getMainColor() {
         return mainColor;
