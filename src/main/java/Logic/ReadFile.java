@@ -57,6 +57,14 @@ public class ReadFile {
         }
         return temp;
     }
+    public int readInt(int position) throws IOException {
+        int temp= 0;
+        for (int i = 0; i < position; i++) {
+            br.readLine();
+        }
+        temp = br.read();
+        return temp;
+    }
 
     /**
      * Reads from a file from the first line to the last line

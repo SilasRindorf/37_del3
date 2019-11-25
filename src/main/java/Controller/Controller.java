@@ -1,6 +1,7 @@
 package Controller;
 import  Dice.*;
 import Entities.PlayerList;
+import Logic.Sorter;
 import Logic.ReadFile;
 import gui_fields.GUI_Field;
 import gui_main.GUI;
@@ -8,12 +9,14 @@ import gui_main.GUI;
 import java.awt.*;
 
 public class Controller {
+    private final Color boardColor = new Color (245,245,220);
 
     public void playGame() throws Exception {
         //Setup for game
         ControllerBoard board = new ControllerBoard();
-        GUI gui = new GUI(board.getGui_fields(),Color.CYAN);
+        GUI gui = new GUI(board.getGui_fields(),boardColor);
         Dice dice = new Dice(6);
+        Sorter estate = new Sorter();
         GUI_Field[] fields = gui.getFields();
         //
         ReadFile rf = new ReadFile();
@@ -25,7 +28,7 @@ public class Controller {
             gui.close();
             board.createBoard(language);
             fields = board.getGui_fields();
-            gui = new GUI(fields, Color.CYAN);
+            gui = new GUI(fields, boardColor);
         }
         rf.openFile("language/" + language + "/controllerText.txt");
 
@@ -69,7 +72,7 @@ public class Controller {
                 gui.getFields()[cm.getMovement().getCarPosition(i)].setCar(pc.getPlayers()[i],true);
 
                 gui.showMessage(gui.getFields()[cm.getMovement().getCarPosition(playerList.getPlayer(i).getId())].getDescription());
-
+                //estate.setLogicStreet(board.getLogic_fields());
                 if (cm.getMovement().isPassedStart())
                     playerList.getPlayer(i).setBalance(playerList.getPlayer(i).getBalance() + 200);
                 pc.updatePlayer(playerList,i);

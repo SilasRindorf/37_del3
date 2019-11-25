@@ -9,13 +9,16 @@ public abstract class Logic_Field {
     private Color backGroundColor;
     private Color border;
     private boolean car = false;
+    private int fieldID = 0;
 
-    public Logic_Field(String title, String subText, String description) {
+    public Logic_Field(String title, String subText, String description, int fieldID) {
         this.title = title;
         this.subText = subText;
         this.description = description;
+        this.fieldID = fieldID;
     }
-    public Logic_Field(String title, String subText, String description,Color backGroundColor, Color border) {
+
+    public Logic_Field(String title, String subText, String description, Color backGroundColor, Color border) {
         this.title = title;
         this.subText = subText;
         this.description = description;
@@ -55,11 +58,12 @@ public abstract class Logic_Field {
         this.backGroundColor = backGroundColor;
     }
 
-    public boolean isCar() {
-        return car;
+    public int getFieldID() {
+        return fieldID;
     }
 
-    public void setCar(boolean car) {
-        this.car = car;
+    public void setFieldID(int fieldID) {
+        this.fieldID = fieldID;
     }
+
 }

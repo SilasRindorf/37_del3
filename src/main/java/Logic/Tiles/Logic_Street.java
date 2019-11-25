@@ -7,25 +7,6 @@ public class Logic_Street extends Logic_Field {
     private int propertyPrice;
     private int ownerID;
     private int rent;
-    public Logic_Street(String title,String subtext, String description){
-        super(title,subtext,description);
-    }
-    public Logic_Street(String title,String subtext, String description,int propertyPrice,int rent){
-        super(title,subtext,description);
-        this.propertyPrice = propertyPrice;
-        this.rent = rent;
-    }
-    public Logic_Street(String title, String subtext, String description, Color backGroundColor, Color border){
-        super(title,subtext,description,backGroundColor,border);
-    }
-    public Logic_Street(String title, String subtext, String description,int propertyPrice, Color backGroundColor, Color border){
-        super(title,subtext,description,backGroundColor,border);
-    }
-    public Logic_Street(String title, String subtext, String description, int propertyPrice, int rent, Color backGroundColor, Color border){
-        super(title,subtext,description,backGroundColor,border);
-        this.propertyPrice = propertyPrice;
-        this.rent = rent;
-    }
 
     public Logic_Street() {
         super("Title","Subtext","Description");

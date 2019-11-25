@@ -24,4 +24,6 @@ public class ControllerMove {
     public Movement getMovement(){
         return movement;
     }
+    public void ownership() {
+    }
 }
