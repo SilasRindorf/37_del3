@@ -9,7 +9,7 @@ public class Logic_Street extends Logic_Field {
     private int rent;
 
     public Logic_Street() {
-        super("Title","Subtext","Description");
+        super("Title","Subtext","Description",0);
     }
 
 
