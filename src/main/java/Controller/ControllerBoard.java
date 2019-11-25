@@ -3,16 +3,16 @@ package Controller;
 import Entities.CreateLogicFields;
 import Logic.Tiles.*;
 import gui_fields.*;
-import sun.rmi.runtime.Log;
 
 class ControllerBoard {
     private GUI_Field[] gui_fields;
+    private Logic_Field[] logic_fields;
     ControllerBoard() throws Exception {
         createBoard("english");
     }
     public void createBoard(String language) throws Exception {
         CreateLogicFields createLogicFields = new CreateLogicFields();
-        Logic_Field[] logic_fields = createLogicFields.createNewTiles(language);
+        logic_fields = createLogicFields.createNewTiles(language);
         gui_fields = new GUI_Field[logic_fields.length];
         for (int i = 0; i < logic_fields.length; i++) {
             if (logic_fields[i] instanceof Logic_Street) {
@@ -42,4 +42,5 @@ class ControllerBoard {
     GUI_Field[] getGui_fields() {
         return gui_fields;
     }
+    Logic_Field[] getLogic_fields(){return logic_fields;}
 }

@@ -1,6 +1,7 @@
 package Controller;
 import  Dice.*;
 import Entities.PlayerList;
+import Logic.Sorter;
 import gui_fields.GUI_Field;
 import gui_main.GUI;
 
@@ -14,6 +15,7 @@ public class Controller {
         ControllerBoard board = new ControllerBoard();
         GUI gui = new GUI(board.getGui_fields(),boardColor);
         Dice dice = new Dice(6);
+        Sorter estate = new Sorter();
         GUI_Field[] fields = gui.getFields();
 
 
@@ -67,7 +69,7 @@ public class Controller {
                 gui.getFields()[cm.getMovement().getCarPosition(i)].setCar(pc.getPlayers()[i],true);
 
                 gui.showMessage(gui.getFields()[cm.getMovement().getCarPosition(playerList.getPlayer(i).getId())].getDescription());
-
+                //estate.setLogicStreet(board.getLogic_fields());
                 if (cm.getMovement().isPassedStart())
                     playerList.getPlayer(i).setBalance(playerList.getPlayer(i).getBalance() + 200);
                 pc.updatePlayer(playerList,i);
