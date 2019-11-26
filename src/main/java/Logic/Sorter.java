@@ -7,6 +7,8 @@ import Logic.Tiles.Logic_Street;
 
 public class Sorter {
     private PlayerList playerList;
+    private Movement movement;
+    private Move move;
 
     public void findLogicField(Logic_Field[] logic_field, int playerID, int playerPosition) {
         //Start
@@ -23,6 +25,8 @@ public class Sorter {
         }
         //goToJail
         else if (logic_field[playerPosition].getFieldID() == 5) {
+            move.moveCar(playerID, 12);
+            playerList.getPlayer(playerID).setBalance((playerList.getPlayer(playerID)).getBalance()-2);
         }
         //Street
         //todo create color for fields on street.
