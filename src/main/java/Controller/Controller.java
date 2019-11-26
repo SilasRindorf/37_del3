@@ -47,6 +47,7 @@ public class Controller {
             playerList.getPlayer(i).setName("Player " + playerList.getPlayer(i).getName() + " " + name);
         }
         pc.addPlayers(playerList);
+        sorter.setPlayerList(playerList);
 
 
         //Put players on start
@@ -71,7 +72,7 @@ public class Controller {
                 cm.moveCar(i,dice.getEyes());
 
                 gui.getFields()[cm.getMovement().getCarPosition(i)].setCar(pc.getPlayers()[i],true);
-                sorter.findLogicField(board.getLogic_fields()[cm.getMovement().getCarPosition(i)]);
+                sorter.findLogicField(board.getLogic_fields(),i,cm.getMovement().getCarPosition(i));
 
 
                 gui.showMessage(gui.getFields()[cm.getMovement().getCarPosition(playerList.getPlayer(i).getId())].getDescription());
