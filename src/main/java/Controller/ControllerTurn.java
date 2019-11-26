@@ -3,6 +3,7 @@ package Controller;
 
 import Dice.Dice;
 import Entities.PlayerList;
+import Logic.Move;
 
 public class ControllerTurn {
     private PlayerList playerList;
@@ -21,7 +22,7 @@ public class ControllerTurn {
         //Dice throw and move player
         for (int i = 0; i < playerList.getPlayers().length;i++) {
             Dice dice = new Dice(6);
-            ControllerMove CM = new ControllerMove(playerList);
+            Move CM = new Move(playerList);
 
 
             dice.rollDice();

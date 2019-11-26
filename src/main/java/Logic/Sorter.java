@@ -1,10 +1,12 @@
 package Logic;
 
+import Entities.PlayerList;
 import Logic.Tiles.Logic_Field;
 import Logic.Tiles.Logic_Street;
-import sun.rmi.runtime.Log;
+
 
 public class Sorter {
+    private PlayerList playerList;
     private Owner owner = new Owner();
     public void findLogicField(Logic_Field logic_field) {
         //Start
@@ -24,11 +26,13 @@ public class Sorter {
         }
         //Street
         else if (logic_field.getFieldID() == 6){
-            //owner.estateHasOwner();
-            Logic_Street street = (Logic_Street) logic_field;
-            System.out.println(street.getOwnerID());
+            Logic_Street logicStreet = (Logic_Street) logic_field;
+            owner.estateHasOwner(logicStreet);
         }
 
     }
-
+    public void setPlayerList(PlayerList playerList) {
+        this.playerList = playerList;
+    }
 }
+

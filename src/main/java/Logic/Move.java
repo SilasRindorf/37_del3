@@ -1,14 +1,14 @@
-package Controller;
+package Logic;
 
 import Entities.Entity_Player;
 import Entities.PlayerList;
-import Logic.Movement;
 
-public class ControllerMove {
+
+public class Move {
     private PlayerList playerList;
     private Movement movement;
     private int amountOfFields;
-    public ControllerMove(PlayerList playerList){
+    public Move(PlayerList playerList){
         this.playerList = playerList;
         movement = new Movement(playerList.getPlayers().length);
         movement.setAmountOfFields(amountOfFields);

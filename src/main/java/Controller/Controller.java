@@ -1,6 +1,7 @@
 package Controller;
 import  Dice.*;
 import Entities.PlayerList;
+import Logic.Move;
 import Logic.Sorter;
 import Logic.ReadFile;
 import gui_fields.GUI_Field;
@@ -9,12 +10,12 @@ import gui_main.GUI;
 import java.awt.*;
 
 public class Controller {
-    private final Color boardColor = new Color (245,245,220);
+    private final Color BOARDCOLOR = new Color (245,245,220);
 
     public void playGame() throws Exception {
         //Setup for game
         ControllerBoard board = new ControllerBoard();
-        GUI gui = new GUI(board.getGui_fields(),boardColor);
+        GUI gui = new GUI(board.getGui_fields(), BOARDCOLOR);
         Dice dice = new Dice(6);
         Sorter sorter = new Sorter();
         GUI_Field[] fields = gui.getFields();
@@ -28,7 +29,7 @@ public class Controller {
             gui.close();
             board.createBoard(language);
             fields = board.getGui_fields();
-            gui = new GUI(fields, boardColor);
+            gui = new GUI(fields, BOARDCOLOR);
         }
         rf.openFile("language/" + language + "/controllerText.txt");
 
@@ -54,7 +55,7 @@ public class Controller {
         }
 
 
-        ControllerMove cm = new ControllerMove(playerList);
+        Move cm = new Move(playerList);
         cm.getMovement().setAmountOfFields(fields.length);
         cm.setAmountOfFields(fields.length);
         //Game loop
@@ -71,6 +72,7 @@ public class Controller {
 
                 gui.getFields()[cm.getMovement().getCarPosition(i)].setCar(pc.getPlayers()[i],true);
                 sorter.findLogicField(board.getLogic_fields()[cm.getMovement().getCarPosition(i)]);
+
 
                 gui.showMessage(gui.getFields()[cm.getMovement().getCarPosition(playerList.getPlayer(i).getId())].getDescription());
                 //estateHasOwner.setLogicStreet(board.getLogic_fields());
