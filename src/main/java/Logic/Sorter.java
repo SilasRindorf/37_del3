@@ -1,31 +1,32 @@
 package Logic;
 
-import Logic.Tiles.Logic_Chance;
 import Logic.Tiles.Logic_Field;
-import Logic.Tiles.Logic_Jail;
-import gui_fields.*;
-import Logic.Estate;
 import Logic.Tiles.Logic_Street;
+import sun.rmi.runtime.Log;
 
 public class Sorter {
-    public void sorter(Logic_Field logicFields) {
+    private Owner owner = new Owner();
+    public void findLogicField(Logic_Field logic_field) {
         //Start
-        if (logicFields.getFieldID() == 1) {
+        if (logic_field.getFieldID() == 1) {
         }
         //Chance
-        else if (logicFields.getFieldID() == 2){
+        else if (logic_field.getFieldID() == 2){
         }
         //JailVisit
-        else if (logicFields.getFieldID() == 3){
+        else if (logic_field.getFieldID() == 3){
         }
         //Parking
-        else if (logicFields.getFieldID() == 4){
+        else if (logic_field.getFieldID() == 4){
         }
         //goToJail
-        else if (logicFields.getFieldID() == 5){
+        else if (logic_field.getFieldID() == 5){
         }
         //Street
-        else if (logicFields.getFieldID() == 6){
+        else if (logic_field.getFieldID() == 6){
+            //owner.estateHasOwner();
+            Logic_Street street = (Logic_Street) logic_field;
+            System.out.println(street.getOwnerID());
         }
 
     }

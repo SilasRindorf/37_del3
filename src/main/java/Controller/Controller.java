@@ -16,7 +16,7 @@ public class Controller {
         ControllerBoard board = new ControllerBoard();
         GUI gui = new GUI(board.getGui_fields(),boardColor);
         Dice dice = new Dice(6);
-        Sorter estate = new Sorter();
+        Sorter sorter = new Sorter();
         GUI_Field[] fields = gui.getFields();
         //
         ReadFile rf = new ReadFile();
@@ -70,9 +70,10 @@ public class Controller {
                 cm.moveCar(i,dice.getEyes());
 
                 gui.getFields()[cm.getMovement().getCarPosition(i)].setCar(pc.getPlayers()[i],true);
+                sorter.findLogicField(board.getLogic_fields()[cm.getMovement().getCarPosition(i)]);
 
                 gui.showMessage(gui.getFields()[cm.getMovement().getCarPosition(playerList.getPlayer(i).getId())].getDescription());
-                //estate.setLogicStreet(board.getLogic_fields());
+                //estateHasOwner.setLogicStreet(board.getLogic_fields());
                 if (cm.getMovement().isPassedStart())
                     playerList.getPlayer(i).setBalance(playerList.getPlayer(i).getBalance() + 200);
                 pc.updatePlayer(playerList,i);
