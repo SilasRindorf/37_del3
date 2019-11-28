@@ -1,7 +1,6 @@
 package Controller;
 import  Dice.*;
 import Entities.PlayerList;
-import Logic.Move;
 import Logic.Sorter;
 import Logic.ReadFile;
 import gui_fields.GUI_Field;
@@ -34,14 +33,15 @@ public class Controller {
             playerCount = gui.getUserInteger(rf.fileToStringArray()[rf.findFirstWord("PLAYERCOUNT") + 1], 2, 4);
         }
         PlayerList playerList = new PlayerList(playerCount);
-        ControllerPlayer pc = new ControllerPlayer(gui);
+        ControllerPlayer pc = new ControllerPlayer();
+        pc.setPlayerCount(playerCount);
 
         //Give players a name
         for (int i = 0; i < playerCount; i++) {
             String name = gui.getUserString("Input player " + playerList.getPlayer(i).getName() +  "'s name");
             playerList.getPlayer(i).setName("Player " + playerList.getPlayer(i).getName() + " " + name);
+            pc.createGUIPlayer(i,playerList.getPlayer(i).getName());
         }
-        pc.addPlayers(playerList);
         sorter.setPlayerList(playerList);
 
 
@@ -51,9 +51,10 @@ public class Controller {
         }
 
 
-        Move cm = new Move(playerList);
+        ControllerMove cm = new ControllerMove(playerList);
         cm.getMovement().setAmountOfFields(fields.length);
         cm.setAmountOfFields(fields.length);
+        cm.setGui_field(gui.getFields());
         //Game loop
         while (true) {
             //Dice throw and move player

@@ -28,7 +28,6 @@ public class Sorter {
             playerList.getPlayer(playerID).setBalance((playerList.getPlayer(playerID)).getBalance()-2);
         }
         //Street
-        //todo create color for fields on street.
         else if (logic_field[playerPosition].getFieldID() == 6) {
             Logic_Street logicStreet = (Logic_Street) logic_field[playerPosition];
             if (logicStreet.isHasOwner()) {
