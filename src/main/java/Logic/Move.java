@@ -21,21 +21,6 @@ public class Move {
     }
     public void moveCar(int playerID,int eyes){
         Entity_Player playerToMove = playerList.getPlayer(playerID);
-        // todo Logic_Chance -> get card -> use in jail
-        if(playerToMove.getInJail()){
-            if (playerToMove.getchanceOutOfJail()){
-           //     System.out.println("Use Chance card");
-                playerToMove.setchanceOutOfJail(false);
-                playerToMove.setInJail(false);
-            }
-            else {
-            //    System.out.println("Pay 2M");
-                int newBalance = playerToMove.getBalance() - 2; //get balance and withdraw 2M
-                playerToMove.setBalance(newBalance); //setting new balance
-                playerToMove.setInJail(false); //taking player out of jail
-            }
-        }
-
 
         movement.move(playerToMove,eyes);
     }

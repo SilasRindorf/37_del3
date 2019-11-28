@@ -22,11 +22,6 @@ public class Movement {
         else {
             passedStart = false;
         }
-        // go to jail = 18, in jail = 6
-        if (carPositions[player.getId()] == 18){ //landing on jail field
-            carPositions[player.getId()] = 6; //moving car position from field number 18 to field number 6.
-            player.setInJail(true); //player is in jail.
-        }
     }
 
     public boolean isPassedStart() {

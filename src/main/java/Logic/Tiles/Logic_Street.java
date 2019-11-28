@@ -16,6 +16,10 @@ public class Logic_Street extends Logic_Field {
      public void setHasOwner(boolean hasOwner){
         this.hasOwner = hasOwner;
      }
+     public void setHasOwner(boolean hasOwner, int playerID){
+        this.hasOwner = hasOwner;
+        setOwnerID(playerID);
+    }
      public boolean isHasOwner(){
         return hasOwner;
      }
