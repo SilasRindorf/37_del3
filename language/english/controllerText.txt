@@ -3,4 +3,4 @@ SEARCHWORD  - Must be in all caps
 
 //END TEMPLATE
 PLAYERCOUNT
-Select amount of players
+Select amount of players 2-4

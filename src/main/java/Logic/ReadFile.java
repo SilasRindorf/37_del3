@@ -59,11 +59,37 @@ public class ReadFile {
     }
     public int readInt(int position) throws IOException {
         int temp= 0;
-        for (int i = 0; i < position - 1; i++) {
+        br.mark(100000);
+        for (int i = 0; i < position; i++) {
             br.readLine();
         }
         temp = br.read();
+        System.out.println(temp);
+        br.reset();
         return temp;
+    }
+    public int[] readLineOfInts(int position) throws IOException {
+        int j = 0;
+        br.mark(100000);
+        while (br.readLine() != null) {
+            j++;
+        }
+        br.reset();
+        br.mark(100000);
+        for (int i = 0; i < j; i++) {
+            String tempString = br.readLine();
+            if (i == position){
+                String[] tempArray = tempString.split(" ");
+                int[] temp = new int[tempArray.length];
+                for (int k = 0; k < tempArray.length; k++) {
+                    temp[k] = Integer.parseInt(tempArray[k]);
+                }
+                br.reset();
+                return temp;
+            }
+        }
+        br.reset();
+        return new int[0];
     }
 
     /**
@@ -120,11 +146,14 @@ public class ReadFile {
     public int findFirstWord(String searchWord,int startLine) throws IOException {
         String[] strings = fileToStringArray();
         if (strings.length < startLine || startLine < 0)
-            startLine = 0;
-
-        for (int j = startLine; j < strings.length; j++) {
-            if (strings[j].equals(searchWord.toUpperCase()))
-                return j;
+                startLine = 0;
+        try {
+            for (int j = startLine; j < strings.length; j++) {
+                if (strings[j].equals(searchWord.toUpperCase()))
+                    return j;
+            }
+        }catch (Exception e){
+            e.printStackTrace();
         }
         return 0;
     }
