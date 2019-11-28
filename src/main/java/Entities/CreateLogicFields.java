@@ -1,7 +1,6 @@
 package Entities;
 import Logic.ReadFile;
 import Logic.Tiles.*;
-
 import java.awt.*;
 import java.io.IOException;
 
@@ -12,6 +11,7 @@ public class CreateLogicFields {
     public Logic_Field[] createNewTiles() throws Exception {
         return createNewTiles("english");
     }
+
     public Logic_Field[] createNewTiles(String language) throws Exception {
         rf.openFile("language/" + language + "/createFieldsText.txt");
         fields = new Logic_Field[24];
@@ -40,32 +40,35 @@ public class CreateLogicFields {
                 fields[fieldCount].setFieldID(5);
                 setText(fields[fieldCount], "goToJail");
             } else {
-                int[] prices = new int [20];
-                for (int k = 0; k < prices.length; k++) {
-                    prices[k] = k*10 + 100;
-                }
-                //fields[i] = new Logic_Street("Kurger Bing", "Subtext", "Description", 200, new Color(59, 49, 1), new Color(255, 255, 255));
+
                 Logic_Street street = new Logic_Street();
-                street.setPropertyPrice(prices[streetCount]);
-                street.setRent(prices[streetCount]/10);
+                ReadFile rf1 = new ReadFile();
+                rf1.openFile("language/" + "streetProperties.txt");
+                street.setPropertyPrice(rf1.readInt(rf1.findFirstWord("STREET" + streetCount) + 1));
+                street.setRent(rf1.readInt(rf1.findFirstWord("STREET" + streetCount) + 2));
+                int[] rgbValues = rf1.readLineOfInts(rf1.findFirstWord("STREET" + streetCount) + 3);
+                street.setBackGroundColor(new Color(rgbValues[0],rgbValues[1],rgbValues[2]));
+
                 fields[fieldCount] = street;
                 fields[fieldCount].setFieldID(6);
                 setText(fields[fieldCount], "street" + streetCount);
-                fields[fieldCount].setBackGroundColor(new Color (rf.findFirstWord("street" + streetCount),rf.findFirstWord("street" + streetCount)*2,(int) (rf.findFirstWord("street" + streetCount)*1.5)));
                 streetCount++;
             }
         }
         return fields;
     }
+
     private void setText(Logic_Field fields, String findWord) throws IOException {
         int j = rf.findFirstWord(findWord.toUpperCase());
-        fields.setTitle(rf.fileToStringArray()[j+1]);
-        fields.setSubText(rf.fileToStringArray()[j+2]);
-        fields.setDescription(rf.fileToStringArray()[j+3]);
+        fields.setTitle(rf.fileToStringArray()[j + 1]);
+        fields.setSubText(rf.fileToStringArray()[j + 2]);
+        fields.setDescription(rf.fileToStringArray()[j + 3]);
     }
-    public void setFields(Logic_Field[] fields){
+
+    public void setFields(Logic_Field[] fields) {
         this.fields = fields;
     }
+
     public Logic_Field[] getFields() {
         return fields;
     }
