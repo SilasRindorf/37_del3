@@ -8,6 +8,7 @@ import Logic.Tiles.Logic_Street;
 public class Sorter {
     private PlayerList playerList;
     private boolean jailVisit;
+    private int fieldNumber;
 
     public void findLogicField(Logic_Field[] logic_field, int playerID, int playerPosition) {
         //Start
@@ -18,7 +19,7 @@ public class Sorter {
         }
         //JailVisit
         else if (logic_field[playerPosition].getFieldID() == 3) {
-            jailVisit = true;
+
         }
         //Parking
         else if (logic_field[playerPosition].getFieldID() == 4) {
@@ -51,9 +52,9 @@ public class Sorter {
             } else {
                 playerList.getPlayer(playerID).setBalance(playerList.getPlayer(playerID).getBalance() - logicStreet.getPropertyPrice());
                 logicStreet.setHasOwner(true, playerID);
+                setFieldNumber(playerPosition);
             }
         }//End of street
-        jailVisit = false;
 
     }
 
@@ -62,6 +63,13 @@ public class Sorter {
     }
     public void setJailVisit(boolean jailVisit){
         this.jailVisit = jailVisit;
+    }
+
+    public int getFieldNumber() {
+        return fieldNumber;
+    }
+    public void setFieldNumber(int fieldNumber){
+        this.fieldNumber = fieldNumber;
     }
 
     public boolean isJailVisit() {
