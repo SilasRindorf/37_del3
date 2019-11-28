@@ -8,7 +8,7 @@ public class ControllerPlayer {
     private GUI_Player[] players;
 
     public void createGUIPlayer(int playerID, String name) {
-        players[playerID] = new GUI_Player("Player " + (playerID + 1) + " " + name, 1000, createCar(playerID));
+        players[playerID] = new GUI_Player("Player " + playerID + " " + name, 1000, createCar(playerID));
     }
 
     public void updatePlayer(PlayerList playerList, int id) {
