@@ -59,10 +59,20 @@ public class ReadFile {
     }
     public int readInt(int position) throws IOException {
         int temp= 0;
+        br.mark(100000);
         for (int i = 0; i < position; i++) {
             br.readLine();
         }
         temp = br.read();
+        br.reset();
+        return temp;
+    }
+    public int[] readLineOfInts(int position) throws IOException {
+       String[] str = fileToStringArray();
+       int[] temp = new int[str.length];
+        for (int i = 0; i < str.length; i++) {
+            temp[i] = Integer.parseInt(str[i]);
+        }
         return temp;
     }
 
