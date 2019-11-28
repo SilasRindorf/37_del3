@@ -7,8 +7,7 @@ import Logic.Tiles.Logic_Street;
 
 public class Sorter {
     private PlayerList playerList;
-    private Movement movement;
-    private Move move;
+    private boolean jailVisit;
 
     public void findLogicField(Logic_Field[] logic_field, int playerID, int playerPosition) {
         //Start
@@ -19,13 +18,13 @@ public class Sorter {
         }
         //JailVisit
         else if (logic_field[playerPosition].getFieldID() == 3) {
+            jailVisit = true;
         }
         //Parking
         else if (logic_field[playerPosition].getFieldID() == 4) {
         }
         //goToJail
         else if (logic_field[playerPosition].getFieldID() == 5) {
-            move.moveCar(playerID, 12);
             playerList.getPlayer(playerID).setBalance((playerList.getPlayer(playerID)).getBalance()-2);
         }
         //Street
@@ -51,18 +50,23 @@ public class Sorter {
                 }
 
 
-
-            }
-            else {
+            } else {
                 playerList.getPlayer(playerID).setBalance(playerList.getPlayer(playerID).getBalance() - logicStreet.getPropertyPrice());
                 logicStreet.setHasOwner(true, playerID);
             }
+        }//End of street
+        jailVisit = false;
 
-        }
     }
 
     public void setPlayerList(PlayerList playerList) {
         this.playerList = playerList;
     }
+    public void setJailVisit(boolean jailVisit){
+        this.jailVisit = jailVisit;
+    }
 
+    public boolean isJailVisit() {
+        return jailVisit;
+    }
 }

@@ -59,7 +59,7 @@ public class ReadFile {
     }
     public int readInt(int position) throws IOException {
         int temp= 0;
-        for (int i = 0; i < position; i++) {
+        for (int i = 0; i < position - 1; i++) {
             br.readLine();
         }
         temp = br.read();
@@ -120,14 +120,11 @@ public class ReadFile {
     public int findFirstWord(String searchWord,int startLine) throws IOException {
         String[] strings = fileToStringArray();
         if (strings.length < startLine || startLine < 0)
-                startLine = 0;
-        try {
-            for (int j = startLine; j < strings.length; j++) {
-                if (strings[j].equals(searchWord.toUpperCase()))
-                    return j;
-            }
-        }catch (Exception e){
-            e.printStackTrace();
+            startLine = 0;
+
+        for (int j = startLine; j < strings.length; j++) {
+            if (strings[j].equals(searchWord.toUpperCase()))
+                return j;
         }
         return 0;
     }

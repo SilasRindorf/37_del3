@@ -4,7 +4,6 @@ import Entities.PlayerList;
 import Logic.Move;
 import Logic.Sorter;
 import Logic.ReadFile;
-import Logic.Tiles.Logic_Field;
 import gui_fields.GUI_Field;
 import gui_main.GUI;
 
@@ -23,22 +22,17 @@ public class Controller {
         //
         ReadFile rf = new ReadFile();
 
-
         //Choose language
-        String language = gui.getUserSelection("Choose language","English","Danish");
-        if (!language.equalsIgnoreCase("english")){
-            gui.close();
-            board.createBoard(language);
-            fields = board.getGui_fields();
-            gui = new GUI(fields, BOARDCOLOR);
-        }
+        String language = gui.getUserSelection("Choose language", "English", "Danish");
+        board.createBoard(language);
         rf.openFile("language/" + language + "/controllerText.txt");
 
 
         //Get number of players
         int playerCount = 0;
-        while (playerCount > 4 || playerCount < 2)
-            playerCount = gui.getUserInteger(rf.fileToStringArray()[rf.findFirstWord("PLAYERCOUNT")+1],2,4);
+        while (playerCount > 4 || playerCount < 2) {
+            playerCount = gui.getUserInteger(rf.fileToStringArray()[rf.findFirstWord("PLAYERCOUNT") + 1], 2, 4);
+        }
         PlayerList playerList = new PlayerList(playerCount);
         ControllerPlayer pc = new ControllerPlayer(gui);
 
