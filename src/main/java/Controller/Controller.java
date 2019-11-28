@@ -72,10 +72,11 @@ public class Controller {
 
                 cm.moveCar(i, dice.getEyes());
 
-                sorter.findLogicField(board.getLogic_fields(), i, cm.getMovement().getCarPosition(i));
 
 
                 gui.showMessage(gui.getFields()[cm.getMovement().getCarPosition(playerList.getPlayer(i).getId())].getDescription());
+                sorter.findLogicField(board.getLogic_fields(), i, cm.getMovement().getCarPosition(i));
+
                 if (cm.getMovement().isPassedStart())
                     playerList.getPlayer(i).setBalance(playerList.getPlayer(i).getBalance() + 200);
                 pc.updatePlayer(playerList, i);
@@ -88,6 +89,7 @@ public class Controller {
                         }
                     }
                     gui.showMessage(playerList.getPlayer(winningPlayerID).getName() + "has the most money and has won");
+                    gui.close();
                     return;
                 }
             }

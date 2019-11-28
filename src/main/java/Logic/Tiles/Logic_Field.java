@@ -7,7 +7,6 @@ public abstract class Logic_Field {
     private String subText;
     private String description;
     private Color backGroundColor;
-    private boolean car = false;
     private int fieldID = 0;
 
     public Logic_Field(String title, String subText, String description, int fieldID) {

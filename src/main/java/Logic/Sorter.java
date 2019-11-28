@@ -25,7 +25,7 @@ public class Sorter {
         }
         //goToJail
         else if (logic_field[playerPosition].getFieldID() == 5) {
-            playerList.getPlayer(playerID).setBalance((playerList.getPlayer(playerID)).getBalance()-2);
+            playerList.getPlayer(playerID).setBalance((playerList.getPlayer(playerID)).getBalance()-200);
         }
         //Street
         else if (logic_field[playerPosition].getFieldID() == 6) {
