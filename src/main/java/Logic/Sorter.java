@@ -25,7 +25,6 @@ public class Sorter {
         }
         //goToJail
         else if (logic_field[playerPosition].getFieldID() == 5) {
-            move.moveCar(playerID, 12);
             playerList.getPlayer(playerID).setBalance((playerList.getPlayer(playerID)).getBalance()-2);
         }
         //Street
