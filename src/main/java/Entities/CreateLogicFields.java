@@ -44,8 +44,8 @@ public class CreateLogicFields {
                 Logic_Street street = new Logic_Street();
                 ReadFile rf1 = new ReadFile();
                 rf1.openFile("language/" + "streetProperties.txt");
-                street.setPropertyPrice(rf1.readInt(rf1.findFirstWord("STREET" + streetCount) + 1));
-                street.setRent(rf1.readInt(rf1.findFirstWord("STREET" + streetCount) + 2));
+                street.setPropertyPrice(rf1.readLineOfInts(rf1.findFirstWord("STREET" + streetCount) + 1)[0]);
+                street.setRent(rf1.readLineOfInts(rf1.findFirstWord("STREET" + streetCount) + 2)[0]);
                 int[] rgbValues = rf1.readLineOfInts(rf1.findFirstWord("STREET" + streetCount) + 3);
                 street.setBackGroundColor(new Color(rgbValues[0],rgbValues[1],rgbValues[2]));
 
