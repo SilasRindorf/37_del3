@@ -35,71 +35,70 @@ Du køber Fentucky Kried Ficken for M100.
 
 STREET2
 50 Cents Candy Shop
-M200
-Du køber 50 Cents Candy Shop for M200.
+M120
+Du køber 50 Cents Candy Shop for M120.
 
 STREET3
 SnackHack
-M200
-Du køber SnackHack for M200.
+M120
+Du køber SnackHack for M120.
 
 STREET4
 Mousiana
-M300
-Du køber Mousiana for M300.
+M140
+Du køber Mousiana for M140.
 
 STREET5
 Statsbiblioteket
-M300
-Du køber Statsbiblioteket for M300.
+M140
+Du køber Statsbiblioteket for M140.
 
 STREET6
 Nielses Netcafé
-M400
-Du køber Nielses Netcafé for M400.
+M160
+Du køber Nielses Netcafé for M160.
 
 STREET7
 Børges Biograf
-M400
-Du køber Børges Biograf for M400.
+M160
+Du køber Børges Biograf for M160.
 
 STREET8
 Turbo Tivoli
-M450
-Du køber Turbo Tivoli for M450.
-450
+M180
+Du køber Turbo Tivoli for M180.
 
 STREET9
 Dr. Pillefingers Legeplads
-M450
-Du køber Dr. Pillefingers Legeplads for M450.
+M180
+Du køber Dr. Pillefingers Legeplads for M180.
 
 STREET10
 Gadgets for Animals
-M500
-Du køber Gadgets for Animals for M500.
+M200
+Du køber Gadgets for Animals for M200.
 
 STREET11
 Dannys Dyr
-M500
-Du køber Dannys Dyr for M500.
+M200
+Du køber Dannys Dyr for M200.
 
 STREET12
 Harambes Zoo
-M600
-Du køber Harambes Zoo for M600.
+M220
+Du køber Harambes Zoo for M220.
 
 STREET13
 Bajer og Bowling
-M600
-Du køber Bajer og Bowling for M600.
+M220
+Du køber Bajer og Bowling for M220.
 
 STREET14
 Københavnskanaler
-M650
-Du køber Københavnskanaler for M650.
+M240
+Du køber Københavnskanaler for M240.
 
 STREET15
 Kystens Svømmehal
-M650
-Du køber Kystens Svømmehal for M650.
+M240
+Du køber Kystens Svømmehal for M240.
