@@ -46,6 +46,6 @@ public class ControllerMove {
         Thread.sleep(miliseconds);
     }
     public void setPassedStart(boolean passedStart){
-        movement.setPassedStart(false);
+        movement.setPassedStart(passedStart);
     }
 }
