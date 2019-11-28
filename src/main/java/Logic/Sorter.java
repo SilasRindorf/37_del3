@@ -8,6 +8,8 @@ import Logic.Tiles.Logic_Street;
 public class Sorter {
     private PlayerList playerList;
     private boolean jailVisit;
+    private Movement movement;
+    private Logic_Street logic_street;
 
     public void findLogicField(Logic_Field[] logic_field, int playerID, int playerPosition) {
         //Start
@@ -68,4 +70,9 @@ public class Sorter {
     public boolean isJailVisit() {
         return jailVisit;
     }
+    public boolean getOwner(){
+        return logic_street.isHasOwner();
+
+    }
+
 }
