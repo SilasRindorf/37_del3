@@ -1,2 +1,2 @@
 PLAYERCOUNT
-Select amount of players
+Select amount of players 2-4
