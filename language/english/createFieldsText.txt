@@ -1,5 +1,5 @@
 //Template
-SEARCHWORD
+SEARCHWORD - Must be in all caps
 Title
 Subtitle
 Description
@@ -8,105 +8,104 @@ Description
 START
 Start
 Receive 200M
-You start here and each time you pass the start you get 200M
+You have passed start og receive M200!
 
 CHANCE
 Chance
-Draw a chance card
-You draw a card that has a random effect
+Get a chance card
+You have landed on a chance field and draw a random chance card.
 
 JAILVISIT
-Jail visit
-Jail visit
-You can visit your friends or enemies in the jail
+Visit jail
+Visit jail
+Du er landet på besøg i fængsel, og besøger din gamle ven.
 
 PARKING
 Free parking
 Free parking
-You get a free turn
+You have landed on free parking, and stop for a moment to enjoy the good view and enjoy the small stuff in life.
 
 GOTOJAIL
-Jail
-Jail
-You go to jail for your crimes and lose 1 turn
+Go to jail
+Go to jail
+You have landed on Go to jail, and get punished for your crimes against the lord.
 
 STREET0
-Title
-SubText
-Description
+Kurger Bing
+M100
+You buy Kurger Bing for M100.
 
 STREET1
-Title
-SubText
-Description
+Fentucky Kried Ficken
+M100
+You buy Fentucky Kried Ficken for M100.
 
 STREET2
-Title
-SubText
-Description
+50 Cents Candy Shop
+M120
+You buy 50 Cents Candy Shop for M120.
 
 STREET3
-Title
-SubText
-Description
+SnackHack
+M120
+You buy SnackHack for M120.
 
 STREET4
-Title
-SubText
-Description
+Mousiana
+M140
+You buy Mousiana for M140.
 
 STREET5
-Title
-SubText
-Description
+State library
+M140
+You buy State library for M140.
 
 STREET6
-Title
-SubText
-Description
-Color
+Nielses Netcafé
+M160
+You buy Nielses Netcafé for M160.
 
 STREET7
-Title
-SubText
-Description
+Børges Cinema
+M160
+You buy Børges Cinema for M160.
 
 STREET8
-Title
-SubText
-Description
+Turbo Tivoli
+M180
+You buy Turbo Tivoli for M180.
 
 STREET9
-Title
-SubText
-Description
+Dr. Ticklingfingers Playground
+M180
+You buy Dr. Ticklingfingers Playground for M180.
 
 STREET10
-Title
-SubText
-Description
+Gadgets for Animals
+M200
+You buy Gadgets for Animals for M200.
 
 STREET11
-Title
-SubText
-Description
+Dannys Animals
+M200
+You buy Dannys Animals for M200.
 
 STREET12
-Title
-SubText
-Description
+Harambes Zoo
+M220
+You buy Harambes Zoo for M220.
 
 STREET13
-Title
-SubText
-Description
+Beer and Bowling
+M220
+You buy Beer and Bowling for M220.
 
 STREET14
-Title
-SubText
-Description
+Copenhagens Canals
+M240
+You buy Copenhagens Canals for M240.
 
 STREET15
-Title
-SubText
-Description
+The Beach Swimclub
+M240
+You buy The  Beach Swimclub for M240.

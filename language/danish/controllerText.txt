@@ -1,0 +1,2 @@
+SPILLERTÆLLER
+Vælg antal af spillere 2-4

@@ -2,37 +2,27 @@ package Logic.Tiles;
 
 import java.awt.*;
 
-//For Bubbi
-//Jeg(Silas) har lavet de mest basic ting i klassen for at koden kan køre
+//For Bubbi & Betina
 public class Logic_Street extends Logic_Field {
     private int propertyPrice;
     private int ownerID;
+    private boolean hasOwner;
     private int rent;
-    public Logic_Street(String title,String subtext, String description){
-        super(title,subtext,description);
-    }
-    public Logic_Street(String title,String subtext, String description,int propertyPrice,int rent){
-        super(title,subtext,description);
-        this.propertyPrice = propertyPrice;
-        this.rent = rent;
-    }
-    public Logic_Street(String title, String subtext, String description, Color backGroundColor, Color border){
-        super(title,subtext,description,backGroundColor,border);
-    }
-    public Logic_Street(String title, String subtext, String description,int propertyPrice, Color backGroundColor, Color border){
-        super(title,subtext,description,backGroundColor,border);
-    }
-    public Logic_Street(String title, String subtext, String description, int propertyPrice, int rent, Color backGroundColor, Color border){
-        super(title,subtext,description,backGroundColor,border);
-        this.propertyPrice = propertyPrice;
-        this.rent = rent;
-    }
 
     public Logic_Street() {
-        super("Title","Subtext","Description");
+        super("Title","Subtext","Description",0);
     }
 
-
+     public void setHasOwner(boolean hasOwner){
+        this.hasOwner = hasOwner;
+     }
+     public void setHasOwner(boolean hasOwner, int playerID){
+        this.hasOwner = hasOwner;
+        setOwnerID(playerID);
+    }
+     public boolean isHasOwner(){
+        return hasOwner;
+     }
     public void setOwnerID(int ownerID){
         this.ownerID = ownerID;
     }

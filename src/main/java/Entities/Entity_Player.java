@@ -3,9 +3,12 @@ public class Entity_Player {
     private String name = "";
     private int balance = 1000;
     private int id;
+
+
     public Entity_Player(int id){
         this.id = id;
         name += id;
+
     }
 
     public void setName(String name) {
@@ -28,4 +31,7 @@ public class Entity_Player {
     public int getId() {
         return id;
     }
+
+
+
 }

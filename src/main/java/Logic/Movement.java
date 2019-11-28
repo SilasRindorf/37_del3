@@ -1,7 +1,4 @@
 package Logic;
-
-import Entities.Entity_Player;
-
 public class Movement {
     private int[] carPositions;
     private boolean passedStart;
@@ -13,14 +10,15 @@ public class Movement {
         }
 
     }
-    public void move(Entity_Player player, int movement){
-        carPositions[player.getId()] += movement;
-        if (carPositions[player.getId()] >= amountOfFields){
-            carPositions[player.getId()] -= amountOfFields;
+    public void move(int playerID, int movement){
+        carPositions[playerID] += movement;
+        if (carPositions[playerID] >= amountOfFields){
+            carPositions[playerID] -= amountOfFields;
             passedStart = true;
         }
-        else
+        else {
             passedStart = false;
+        }
     }
 
     public boolean isPassedStart() {
