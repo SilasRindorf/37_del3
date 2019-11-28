@@ -5,7 +5,7 @@ import Logic.Tiles.Logic_Field;
 import Logic.Tiles.Logic_Street;
 import gui_fields.*;
 
-class ControllerBoard {
+public class ControllerBoard {
     private GUI_Field[] gui_fields;
     private Logic_Field[] logic_fields;
     ControllerBoard() throws Exception {

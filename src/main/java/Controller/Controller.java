@@ -51,23 +51,21 @@ public class Controller {
         }
 
 
-        ControllerMove cm = new ControllerMove(playerList);
-        cm.getMovement().setAmountOfFields(fields.length);
-        cm.setAmountOfFields(fields.length);
+        ControllerMove cm = new ControllerMove(playerCount);
         cm.setGui_field(gui.getFields());
+
         //Game loop
         while (true) {
             //Dice throw and move player
             for (int i=0;i < playerList.getPlayers().length; i++) {
+                cm.setGui_player(pc.getPlayers()[i]);
 
                 gui.showMessage(playerList.getPlayer(i).getName() + " is rolling the dices!");
                 dice.rollDice();
                 gui.setDie(dice.getEyes());
 
-                gui.getFields()[cm.getMovement().getCarPosition(i)].setCar(pc.getPlayers()[i],false);
                 cm.moveCar(i,dice.getEyes());
 
-                gui.getFields()[cm.getMovement().getCarPosition(i)].setCar(pc.getPlayers()[i],true);
                 sorter.findLogicField(board.getLogic_fields(),i,cm.getMovement().getCarPosition(i));
 
 
