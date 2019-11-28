@@ -27,6 +27,9 @@ STREET0
 Kurger Bing
 M100
 Du køber Kurger Bing for M100.
+Kurger Bing ejes af
+ og du skal betale
+
 
 STREET1
 Fentucky Kried Ficken
