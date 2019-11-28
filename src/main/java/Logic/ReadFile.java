@@ -64,6 +64,7 @@ public class ReadFile {
             br.readLine();
         }
         temp = br.read();
+        System.out.println(temp);
         br.reset();
         return temp;
     }
@@ -83,6 +84,7 @@ public class ReadFile {
                 for (int k = 0; k < tempArray.length; k++) {
                     temp[k] = Integer.parseInt(tempArray[k]);
                 }
+                br.reset();
                 return temp;
             }
         }
