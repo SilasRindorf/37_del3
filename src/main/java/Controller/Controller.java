@@ -84,7 +84,7 @@ public class Controller {
                 }
 
                 if (cm.getMovement().isPassedStart()) {
-                    playerList.getPlayer(i).setBalance(playerList.getPlayer(i).getBalance() + 2000);
+                    playerList.getPlayer(i).setBalance(playerList.getPlayer(i).getBalance() + 200);
                     cm.setPassedStart(false);
                 }
                 pc.updatePlayer(playerList);
