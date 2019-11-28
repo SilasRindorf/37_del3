@@ -28,6 +28,7 @@ public class ControllerPlayer {
         return players;
     }
 
+
     public void setPlayerCount(int playerCount) {
         players = new GUI_Player[playerCount];
     }

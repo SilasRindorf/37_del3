@@ -4,6 +4,7 @@ import Entities.PlayerList;
 import Logic.Sorter;
 import Logic.ReadFile;
 import gui_fields.GUI_Field;
+import gui_fields.GUI_Street;
 import gui_main.GUI;
 
 import java.awt.*;
@@ -76,6 +77,10 @@ public class Controller {
 
                 gui.showMessage(gui.getFields()[cm.getMovement().getCarPosition(playerList.getPlayer(i).getId())].getDescription());
                 sorter.findLogicField(board.getLogic_fields(), i, cm.getMovement().getCarPosition(i));
+                if(board.getLogic_fields()[i].getFieldID() == 6){
+                    GUI_Street street = (GUI_Street) board.getGui_fields()[i];
+                    street.setBorder(pc.getPlayers()[i].getPrimaryColor());
+                }
 
                 if (cm.getMovement().isPassedStart())
                     playerList.getPlayer(i).setBalance(playerList.getPlayer(i).getBalance() + 200);
