@@ -1,5 +1,5 @@
 //Template
-SEARCHWORD
+SEARCHWORD - Must be in all caps
 Title
 Subtitle
 Description
