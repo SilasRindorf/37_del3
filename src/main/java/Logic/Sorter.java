@@ -33,7 +33,7 @@ public class Sorter {
             if (logicStreet.isHasOwner()) {
                 int temp = 1;
 
-                if ((playerPosition + 1) < logic_field.length && logic_field[playerPosition + 1].getFieldID() == 6) {
+                if ((playerPosition + 1) > logic_field.length && logic_field[playerPosition + 1].getFieldID() == 6) {
                     Logic_Street tempStreet = (Logic_Street) logic_field[playerPosition + 1];
                     if (logicStreet.getOwnerID() == tempStreet.getOwnerID()) {
                         temp = 2;
@@ -44,10 +44,9 @@ public class Sorter {
                         temp = 2;
                     }
 
-                    playerList.getPlayer(playerID).setBalance(playerList.getPlayer(playerID).getBalance() - logicStreet.getRent() * temp);
-                    playerList.getPlayer(logicStreet.getOwnerID()).setBalance(playerList.getPlayer(logicStreet.getOwnerID()).getBalance() + logicStreet.getRent() * temp);
                 }
-
+                playerList.getPlayer(playerID).setBalance(playerList.getPlayer(playerID).getBalance() - logicStreet.getRent() * temp);
+                playerList.getPlayer(logicStreet.getOwnerID()).setBalance(playerList.getPlayer(logicStreet.getOwnerID()).getBalance() + logicStreet.getRent() * temp);
 
             } else {
                 playerList.getPlayer(playerID).setBalance(playerList.getPlayer(playerID).getBalance() - logicStreet.getPropertyPrice());
