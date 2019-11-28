@@ -11,8 +11,12 @@ public class ControllerPlayer {
         players[playerID] = new GUI_Player("Player " + playerID + " " + name, 1000, createCar(playerID));
     }
 
-    public void updatePlayer(PlayerList playerList, int id) {
-        players[id].setBalance(playerList.getPlayer(id).getBalance());
+    public void updatePlayer(PlayerList playerList) {
+        for (int i = 0; i < playerList.getPlayers().length; i++) {
+            players[i].setBalance(playerList.getPlayer(i).getBalance());
+        }
+
+
     }
 
     private GUI_Car createCar(int playerID) {

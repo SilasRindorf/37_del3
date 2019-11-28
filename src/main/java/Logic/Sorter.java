@@ -71,6 +71,9 @@ public class Sorter {
     public void setFieldNumber(int fieldNumber){
         this.fieldNumber = fieldNumber;
     }
+    private void placeBoardColor(){
+
+    }
 
     public boolean isJailVisit() {
         return jailVisit;

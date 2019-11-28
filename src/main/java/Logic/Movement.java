@@ -17,7 +17,6 @@ public class Movement {
             passedStart = true;
         }
         else {
-            passedStart = false;
         }
     }
 
@@ -28,6 +27,11 @@ public class Movement {
     public int getCarPosition(int carID) {
         return carPositions[carID];
     }
+
+    public void setPassedStart(boolean passedStart) {
+        this.passedStart = passedStart;
+    }
+
     public void setAmountOfFields(int amountOfFields){this.amountOfFields = amountOfFields;}
 
     public int[] getCarPositions() {

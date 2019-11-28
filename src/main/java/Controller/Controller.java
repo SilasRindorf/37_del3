@@ -71,20 +71,25 @@ public class Controller {
                 dice.rollDice();
                 gui.setDie(dice.getEyes());
 
-                cm.moveCar(i,dice.getEyes());
+                cm.moveCar(i,13);
+                System.out.println(playerList.getPlayer(i).getBalance());
 
-
+                System.out.println(cm.getMovement().isPassedStart());
 
                 gui.showMessage(gui.getFields()[cm.getMovement().getCarPosition(playerList.getPlayer(i).getId())].getDescription());
                 sorter.findLogicField(board.getLogic_fields(), i, cm.getMovement().getCarPosition(i));
+                pc.updatePlayer(playerList);
                 if(board.getLogic_fields()[sorter.getFieldNumber()].getFieldID() == 6){
                     GUI_Street street = (GUI_Street) board.getGui_fields()[sorter.getFieldNumber()];
                     street.setBorder(pc.getPlayers()[i].getPrimaryColor());
+
                 }
 
-                if (cm.getMovement().isPassedStart())
-                    playerList.getPlayer(i).setBalance(playerList.getPlayer(i).getBalance() + 200);
-                pc.updatePlayer(playerList, i);
+                if (cm.getMovement().isPassedStart()) {
+                    playerList.getPlayer(i).setBalance(playerList.getPlayer(i).getBalance() + 2000);
+                    cm.setPassedStart(false);
+                }
+                pc.updatePlayer(playerList);
                 if (playerList.getPlayer(i).getBalance() <= 0) {
                     gui.showMessage(playerList.getPlayer(i).getName() + " has no money left and lost");
                     int winningPlayerID = 0;

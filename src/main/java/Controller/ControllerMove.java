@@ -21,7 +21,7 @@ public class ControllerMove {
     public void moveCar(int playerID,int eyes){
         for (int i = 1; i <= eyes; i++) {
             gui_field[movement.getCarPosition(playerID)].setCar(gui_player,false);
-            movement.move(playerID,1);
+            movement.move(playerID, 1);
             try {
                 gui_field[movement.getCarPosition(playerID)].setCar(gui_player,true);
                 sleep(250);
@@ -44,5 +44,8 @@ public class ControllerMove {
 
     private void sleep(long miliseconds) throws InterruptedException {
         Thread.sleep(miliseconds);
+    }
+    public void setPassedStart(boolean passedStart){
+        movement.setPassedStart(false);
     }
 }
