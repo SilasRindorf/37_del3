@@ -68,12 +68,26 @@ public class ReadFile {
         return temp;
     }
     public int[] readLineOfInts(int position) throws IOException {
-       String[] str = fileToStringArray();
-       int[] temp = new int[str.length];
-        for (int i = 0; i < str.length; i++) {
-            temp[i] = Integer.parseInt(str[i]);
+        int j = 0;
+        br.mark(100000);
+        while (br.readLine() != null) {
+            j++;
         }
-        return temp;
+        br.reset();
+        br.mark(100000);
+        for (int i = 0; i < j; i++) {
+            String tempString = br.readLine();
+            if (i == position){
+                String[] tempArray = tempString.split(" ");
+                int[] temp = new int[tempArray.length];
+                for (int k = 0; k < tempArray.length; k++) {
+                    temp[k] = Integer.parseInt(tempArray[k]);
+                }
+                return temp;
+            }
+        }
+        br.reset();
+        return new int[0];
     }
 
     /**

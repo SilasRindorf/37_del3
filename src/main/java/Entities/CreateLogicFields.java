@@ -46,8 +46,8 @@ public class CreateLogicFields {
                 rf1.openFile("language/" + "streetProperties.txt");
                 street.setPropertyPrice(rf1.readInt(rf1.findFirstWord("STREET" + streetCount) + 1));
                 street.setRent(rf1.readInt(rf1.findFirstWord("STREET" + streetCount) + 2));
-                street.setBackGroundColor(new Color(rf1.readInt(rf1.findFirstWord("STREET" + streetCount) + 3)));
-
+                int[] rgbValues = rf1.readLineOfInts(rf1.findFirstWord("STREET" + streetCount) + 3);
+                street.setBackGroundColor(new Color(rgbValues[0],rgbValues[1],rgbValues[2]));
 
                 fields[fieldCount] = street;
                 fields[fieldCount].setFieldID(6);
