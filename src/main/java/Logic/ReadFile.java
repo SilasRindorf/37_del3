@@ -1,9 +1,7 @@
 package Logic;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
+import java.nio.charset.StandardCharsets;
 
 /**
  * This is a class that uses BufferedReader that let's you open a file you choose,
@@ -31,8 +29,8 @@ public class ReadFile {
      *                               </pre>
      */
     public void openFile(String file) throws FileNotFoundException {
-        br = new BufferedReader(new FileReader(file));
-    }
+        br = new BufferedReader(new InputStreamReader(
+                (getClass().getResourceAsStream( file)), StandardCharsets.UTF_8));    }
 
     /**
      * Reads from a file from the first line to the last line
@@ -106,8 +104,8 @@ public class ReadFile {
      */
     public String[] fileToStringArray() throws IOException {
         int i = 0;
+        br.mark(100000);
         if (strings.length == 0) {
-            br.mark(100000);
             while (br.readLine() != null) {
                 i++;
             }
