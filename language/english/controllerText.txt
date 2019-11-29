@@ -4,3 +4,18 @@ SEARCHWORD  - Must be in all caps
 //END TEMPLATE
 PLAYERCOUNT
 Select amount of players 2-4
+
+CHANCECARD
+Chance card
+
+PLAYER
+Player
+ input player name
+'s name
+Player
+
+DICE
+ is rolling the dices!
+Money
+ has no money left and lost
+has the most money and has won

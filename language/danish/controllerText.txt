@@ -1,2 +1,20 @@
-SPILLERTÆLLER
-Vælg antal af spillere 2-4
+//TEMPLATE
+SEARCHWORD  - Must be in all caps
+
+//END TEMPLATE
+PLAYERCOUNT
+Vælg en mængde af spillere
+
+CHANCECARD
+Chance kort
+
+PLAYER
+Spiller
+ indtast spillerens navn
+ 's navn
+
+DICE
+ slår med terningen!
+Money
+ har ingen penge tilbage og har tabt
+har flest penge og har vundet
