@@ -39,7 +39,22 @@ public class ReadFileTest {
     }
 
     @Test
-    public void readLineOfInts() {
+    public void readLineOfInts() throws IOException {
+        ReadFile rf = new ReadFile();
+        String FILEPATH = "src/test/java/testLineOfInts.txt";
+        rf.openFile(FILEPATH);
+        int[][] ints = new int[1000][0];
+        for (int i = 0; i < 1000; i++) {
+            ints[i] = rf.readLineOfInts(i);
+        }
+        for (int i = 0; i < ints.length; i++) {
+            for (int k = 0; k < ints[i].length; k++) {
+                int temp = i;
+                if (k > 0)
+                    temp *= 10;
+                assertEquals(temp,ints[i][k]);
+            }
+        }
     }
 
     @Test
