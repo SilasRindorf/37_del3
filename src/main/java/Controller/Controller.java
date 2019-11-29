@@ -31,22 +31,23 @@ public class Controller {
             gui = new GUI(fields, BOARDCOLOR);
         }
         rf.openFile("language/" + language + "/controllerText.txt");
-        String[] text = rf.fileToStringArray();
-        gui.setChanceCard(text[rf.findFirstWord("CHANCECARD")]);
+        String[] controllerText = rf.fileToStringArray();
+
+        gui.setChanceCard(controllerText[rf.findFirstWord("CHANCECARD")]);
 
 
         //Get number of players
         int playerCount = 0;
         while (playerCount > 4 || playerCount < 2)
-            playerCount = gui.getUserInteger(text[rf.findFirstWord("PLAYERCOUNT") + 1], 2, 4);
+            playerCount = gui.getUserInteger(controllerText[rf.findFirstWord("PLAYERCOUNT") + 1], 2, 4);
         PlayerList playerList = new PlayerList(playerCount);
         pc.setPlayerCount(playerCount);
         ControllerMove cm = new ControllerMove(playerCount);
 
         //Give players a name
         for (int i = 0; i < playerCount; i++) {
-            String name = gui.getUserString(text[rf.findFirstWord("Player") + 1] + " " + playerList.getPlayer(i).getName() + text[rf.findFirstWord("Player") + 2]);
-            playerList.getPlayer(i).setName(text[rf.findFirstWord("Player") + 1] + " " + playerList.getPlayer(i).getName() + " " + name);
+            String name = gui.getUserString(controllerText[rf.findFirstWord("Player") + 1] + " " + playerList.getPlayer(i).getName() + controllerText[rf.findFirstWord("Player") + 2]);
+            playerList.getPlayer(i).setName(controllerText[rf.findFirstWord("Player") + 1] + " " + playerList.getPlayer(i).getName() + " " + name);
             pc.createGUIPlayer(i, name);
             gui.addPlayer(pc.getPlayers()[i]);
         }
@@ -67,7 +68,7 @@ public class Controller {
             for (int i = 0; i < playerList.getPlayers().length; i++) {
                 cm.setGui_player(pc.getPlayers()[i]);
 
-                gui.showMessage(playerList.getPlayer(i).getName() + text[rf.findFirstWord("Dice") + 1]);
+                gui.showMessage(playerList.getPlayer(i).getName() + controllerText[rf.findFirstWord("Dice") + 1]);
                 dice.rollDice();
                 gui.setDie(dice.getEyes());
 
@@ -75,7 +76,7 @@ public class Controller {
                 cm.moveCar(i, 18);
 
                 gui.showMessage(gui.getFields()[cm.getMovement().getCarPosition(playerList.getPlayer(i).getId())].getDescription());
-                sorter.findLogicField(board.getLogic_fields(), i, cm.getMovement().getCarPosition(i));
+                sorter.findLogicField(board.getClf().getFields(), i, cm.getMovement().getCarPosition(i));
                 board.colorStreet(cm.getMovement().getCarPosition(i), i, pc.getPlayers()[i].getPrimaryColor());
 
                 if (sorter.isInJail(i)) {
@@ -87,14 +88,14 @@ public class Controller {
                 }
                 pc.updatePlayer(playerList);
                 if (playerList.getPlayer(i).getBalance() <= 0) {
-                    gui.showMessage(playerList.getPlayer(i).getName() + text[rf.findFirstWord("Money") + 1]);
+                    gui.showMessage(playerList.getPlayer(i).getName() + controllerText[rf.findFirstWord("Money") + 1]);
                     int winningPlayerID = 0;
                     for (int j = 0; j < playerList.getPlayers().length; j++) {
                         if (playerList.getPlayer(winningPlayerID).getBalance() < playerList.getPlayer(j).getBalance()) {
                             winningPlayerID = j;
                         }
                     }
-                    gui.showMessage(playerList.getPlayer(winningPlayerID).getName() + text[rf.findFirstWord("Money") + 2]);
+                    gui.showMessage(playerList.getPlayer(winningPlayerID).getName() + controllerText[rf.findFirstWord("Money") + 2]);
                     gui.close();
                     return;
                 }
