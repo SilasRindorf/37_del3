@@ -3,7 +3,7 @@ SEARCHWORD  - Must be in all caps
 
 //END TEMPLATE
 PLAYERCOUNT
-Vælg en mængde af spillere
+Vælg antal af spillere (2-4)
 
 CHANCECARD
 Chance kort
