@@ -1,8 +1,5 @@
 package Logic.Tiles;
-
-import java.awt.*;
-
-//For Bubbi & Betina
+//Asso Logic_Field
 public class Logic_Street extends Logic_Field {
     private int propertyPrice;
     private int ownerID;

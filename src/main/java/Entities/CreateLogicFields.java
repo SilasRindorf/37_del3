@@ -3,7 +3,7 @@ import Logic.ReadFile;
 import Logic.Tiles.*;
 import java.awt.*;
 import java.io.IOException;
-
+//Asso Logic_Field,Logic_Start,Logic_Chance,Logic_Jail,Logic_Refuge,ReadFile,Java Color
 public class CreateLogicFields {
     private Logic_Field[] fields;
     private ReadFile rf = new ReadFile();

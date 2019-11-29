@@ -1,4 +1,5 @@
 package Entities;
+//No asso
 public class Entity_Player {
     private String name = "";
     private int balance = 1000;
@@ -10,7 +11,6 @@ public class Entity_Player {
         name += id;
 
     }
-
     public void setName(String name) {
         this.name = name;
     }
