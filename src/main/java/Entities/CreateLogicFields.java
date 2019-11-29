@@ -63,4 +63,9 @@ public class CreateLogicFields {
         fields.setSubText(rf.fileToStringArray()[j + 2]);
         fields.setDescription(rf.fileToStringArray()[j + 3]);
     }
+
+    public Logic_Field[] getFields() {
+        //Commit
+        return fields;
+    }
 }
