@@ -7,7 +7,6 @@ import Logic.Tiles.Logic_Street;
 
 public class Sorter {
     private PlayerList playerList;
-    private boolean jailVisit;
     private int fieldNumber;
 
     public void findLogicField(Logic_Field[] logic_field, int playerID, int playerPosition) {
@@ -17,16 +16,11 @@ public class Sorter {
         //Chance
         else if (logic_field[playerPosition].getFieldID() == 2) {
         }
-        //JailVisit
-        else if (logic_field[playerPosition].getFieldID() == 3) {
-
-        }
-        //Parking
-        else if (logic_field[playerPosition].getFieldID() == 4) {
-        }
         //goToJail
         else if (logic_field[playerPosition].getFieldID() == 5) {
+            playerList.getPlayer(playerID).setInJail(true);
             playerList.getPlayer(playerID).setBalance((playerList.getPlayer(playerID)).getBalance()-200);
+            return;
         }
         //Street
         else if (logic_field[playerPosition].getFieldID() == 6) {
@@ -55,14 +49,11 @@ public class Sorter {
                 setFieldNumber(playerPosition);
             }
         }//End of street
-
+        playerList.getPlayer(playerID).setInJail(false);
     }
 
     public void setPlayerList(PlayerList playerList) {
         this.playerList = playerList;
-    }
-    public void setJailVisit(boolean jailVisit){
-        this.jailVisit = jailVisit;
     }
 
     public int getFieldNumber() {
@@ -71,11 +62,11 @@ public class Sorter {
     public void setFieldNumber(int fieldNumber){
         this.fieldNumber = fieldNumber;
     }
-    private void placeBoardColor(){
 
+    public boolean isInJail(int playerID) {
+        return playerList.getPlayer(playerID).isInJail();
     }
-
-    public boolean isJailVisit() {
-        return jailVisit;
+    public void setInJail(int playerID, boolean isInJail) {
+        this.playerList.getPlayer(playerID).setInJail(isInJail);
     }
 }

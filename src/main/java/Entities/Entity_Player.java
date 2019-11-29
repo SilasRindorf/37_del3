@@ -3,7 +3,7 @@ public class Entity_Player {
     private String name = "";
     private int balance = 1000;
     private int id;
-
+    private boolean inJail;
 
     public Entity_Player(int id){
         this.id = id;
@@ -32,6 +32,11 @@ public class Entity_Player {
         return id;
     }
 
+    public void setInJail(boolean inJail) {
+        this.inJail = inJail;
+    }
 
-
+    public boolean isInJail() {
+        return inJail;
+    }
 }

@@ -18,7 +18,7 @@ public class Controller {
         Dice dice = new Dice(6);
         Sorter sorter = new Sorter();
         GUI_Field[] fields = gui.getFields();
-        //
+        ControllerPlayer pc = new ControllerPlayer();
         ReadFile rf = new ReadFile();
 
 
@@ -38,14 +38,14 @@ public class Controller {
         while (playerCount > 4 || playerCount < 2)
             playerCount = gui.getUserInteger(rf.fileToStringArray()[rf.findFirstWord("PLAYERCOUNT") + 1], 2, 4);
         PlayerList playerList = new PlayerList(playerCount);
-        ControllerPlayer pc = new ControllerPlayer();
         pc.setPlayerCount(playerCount);
+        ControllerMove cm = new ControllerMove(playerCount);
 
         //Give players a name
         for (int i = 0; i < playerCount; i++) {
             String name = gui.getUserString("Input player " + playerList.getPlayer(i).getName() + "'s name");
             playerList.getPlayer(i).setName("Player " + playerList.getPlayer(i).getName() + " " + name);
-            pc.createGUIPlayer(i,name);
+            pc.createGUIPlayer(i, name);
             gui.addPlayer(pc.getPlayers()[i]);
         }
         sorter.setPlayerList(playerList);
@@ -57,7 +57,6 @@ public class Controller {
         }
 
 
-        ControllerMove cm = new ControllerMove(playerCount);
         cm.setGui_field(board.getGui_fields());
         cm.setAmountOfFields(fields.length);
         //Game loop
@@ -70,15 +69,17 @@ public class Controller {
                 dice.rollDice();
                 gui.setDie(dice.getEyes());
 
-                //cm.moveCar(i,dice.getEyes());
-                cm.moveCar(i,1);
+                cm.moveCar(i,dice.getEyes());
+                //cm.moveCar(i, 18);
 
                 gui.showMessage(gui.getFields()[cm.getMovement().getCarPosition(playerList.getPlayer(i).getId())].getDescription());
                 sorter.findLogicField(board.getLogic_fields(), i, cm.getMovement().getCarPosition(i));
-                pc.updatePlayer(playerList);
-                board.colorStreet(cm.getMovement().getCarPosition(i),i,pc.getPlayers()[i].getPrimaryColor());
-
-                if (cm.getMovement().isPassedStart()) {
+                board.colorStreet(cm.getMovement().getCarPosition(i), i, pc.getPlayers()[i].getPrimaryColor());
+                if (sorter.isInJail(i)) {
+                    cm.moveCar(i, -12);
+                    sorter.setInJail(i, false);
+                }
+                else if (cm.getMovement().isPassedStart()) {
                     playerList.getPlayer(i).setBalance(playerList.getPlayer(i).getBalance() + 200);
                     cm.setPassedStart(false);
                 }
@@ -95,7 +96,8 @@ public class Controller {
                     gui.close();
                     return;
                 }
+                pc.updatePlayer(playerList);
             }
-        }
+        }//End of gameloop
     }
 }

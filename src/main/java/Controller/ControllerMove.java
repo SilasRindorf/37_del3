@@ -19,15 +19,30 @@ public class ControllerMove {
         movement.setAmountOfFields(amountOfFields);
     }
     public void moveCar(int playerID,int eyes){
-        for (int i = 1; i <= eyes; i++) {
-            gui_field[movement.getCarPosition(playerID)].setCar(gui_player,false);
-            movement.move(playerID, 1);
-            try {
-                gui_field[movement.getCarPosition(playerID)].setCar(gui_player,true);
-                sleep(250);
-            } catch (InterruptedException e){
-                e.printStackTrace();
+        if (eyes <= 0){
+            //gui_field[movement.getCarPosition(playerID)].setCar(gui_player, false);
+            for (int i = 0; i > eyes; i--) {
+                mover(eyes,playerID);
             }
+            //gui_field[6].setCar(gui_player, true);
+        }
+        else {
+            for (int i = 0; i < eyes; i++) {
+                mover(1,playerID);
+            }
+        }
+    }
+    private void mover(int moves, int playerID){
+        gui_field[movement.getCarPosition(playerID)].setCar(gui_player, false);
+        if (moves <= 0)
+            movement.move(playerID,-1);
+        else
+            movement.move(playerID, 1);
+        try {
+            gui_field[movement.getCarPosition(playerID)].setCar(gui_player, true);
+            sleep(250);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
     }
     public Movement getMovement(){
