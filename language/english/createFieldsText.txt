@@ -32,80 +32,80 @@ You have landed on Go to jail, and get punished for your crimes against the lord
 
 STREET0
 Kurger Bing
-M100
-You buy Kurger Bing for M100.
+M100/M60
+Kurger Bing: Tile Price M100 / Rent Price M60.
 
 STREET1
 Fentucky Kried Ficken
-M100
-You buy Fentucky Kried Ficken for M100.
+M100/M60
+Fentucky Kried Ficken: Tile Price M100 / Rent Price M60.
 
 STREET2
 50 Cents Candy Shop
-M120
-You buy 50 Cents Candy Shop for M120.
+M120/M70
+50 Cents Candy Shop: Tile Price M120 / Rent Price M70.
 
 STREET3
 SnackHack
-M120
-You buy SnackHack for M120.
+M120/M70
+SnackHack: Tile Price M120 / Rent Price M70.
 
 STREET4
 Mousiana
-M140
-You buy Mousiana for M140.
+M140/M80
+Mousiana: Tile Price M140 / Rent Price M80.
 
 STREET5
 State library
-M140
-You buy State library for M140.
+M140/M80
+State library: Tile Price M140 / Rent Price M80.
 
 STREET6
 Nielses Netcafé
-M160
-You buy Nielses Netcafé for M160.
+M160/M90
+Nielses Netcafé: Tile Price M160 / Rent Price M90.
 
 STREET7
 Børges Cinema
-M160
-You buy Børges Cinema for M160.
+M160/M90
+Børges Cinema: Tile Price M160 / Rent Price M90.
 
 STREET8
 Turbo Tivoli
-M180
-You buy Turbo Tivoli for M180.
+M180/M100
+Turbo Tivoli: Tile Price M180 / Rent Price M100.
 
 STREET9
 Dr. Ticklingfingers Playground
-M180
-You buy Dr. Ticklingfingers Playground for M180.
+M180/M100
+Dr. Ticklingfingers Playground: Tile Price M180 / Rent Price M100.
 
 STREET10
 Gadgets for Animals
-M200
-You buy Gadgets for Animals for M200.
+M200/M110
+Gadgets for Animals: Tile Price M200 / Rent Price M110.
 
 STREET11
 Dannys Animals
-M200
-You buy Dannys Animals for M200.
+M200/M110
+Dannys Animals: Tile Price M200 / Rent Price M110.
 
 STREET12
 Harambes Zoo
-M220
-You buy Harambes Zoo for M220.
+M220/M120
+Harambes Zoo: Tile Price M220 / Rent Price M120.
 
 STREET13
 Beer and Bowling
-M220
-You buy Beer and Bowling for M220.
+M220/M120
+Beer and Bowling: Tile Price M220 / Rent Price M120.
 
 STREET14
 Copenhagens Canals
-M240
-You buy Copenhagens Canals for M240.
+M240/M130
+Copenhagens Canals: Tile Price M240 / Rent Price M130.
 
 STREET15
 The Beach Swimclub
-M240
-You buy The  Beach Swimclub for M240.
+M240/M130
+The Beach Swimclub: Tile Price M240 / Rent Price M130.
