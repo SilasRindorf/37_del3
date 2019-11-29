@@ -1,6 +1,6 @@
 //Template
 SEARCHWORD - Must be in all caps
-Title
+Title.
 Subtitle
 Description
 //End template
