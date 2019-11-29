@@ -65,6 +65,7 @@ public class CreateLogicFields {
     }
 
     public Logic_Field[] getFields() {
+        //Commit
         return fields;
     }
 }
