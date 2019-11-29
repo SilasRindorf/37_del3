@@ -45,8 +45,8 @@ public class Controller {
 
         //Give players a name
         for (int i = 0; i < playerCount; i++) {
-            String name = gui.getUserString(text[rf.findFirstWord("Player") + 1] + " " + playerList.getPlayer(i).getName() + text[rf.findFirstWord("Player")+2]);
-            playerList.getPlayer(i).setName(text[rf.findFirstWord("Player")+ 1]+ " " + playerList.getPlayer(i).getName() + " " + name);
+            String name = gui.getUserString(text[rf.findFirstWord("Player") + 1] + " " + playerList.getPlayer(i).getName() + text[rf.findFirstWord("Player") + 2]);
+            playerList.getPlayer(i).setName(text[rf.findFirstWord("Player") + 1] + " " + playerList.getPlayer(i).getName() + " " + name);
             pc.createGUIPlayer(i, name);
             gui.addPlayer(pc.getPlayers()[i]);
         }
@@ -71,18 +71,21 @@ public class Controller {
                 dice.rollDice();
                 gui.setDie(dice.getEyes());
 
-                cm.moveCar(i,dice.getEyes());
-                //cm.moveCar(i, 18);
+                //cm.moveCar(i,dice.getEyes());
+                cm.moveCar(i, 18);
 
                 gui.showMessage(gui.getFields()[cm.getMovement().getCarPosition(playerList.getPlayer(i).getId())].getDescription());
+                if (cm.getMovement().getCarPosition(i) == 18) {
+                    int temp = gui.getUserInteger("monies");
+                    playerList.getPlayer(i).setBalance(temp);
+                }
                 sorter.findLogicField(board.getLogic_fields(), i, cm.getMovement().getCarPosition(i));
                 board.colorStreet(cm.getMovement().getCarPosition(i), i, pc.getPlayers()[i].getPrimaryColor());
 
                 if (sorter.isInJail(i)) {
                     cm.moveCar(i, -12);
                     sorter.setInJail(i, false);
-                }
-                else if (cm.getMovement().isPassedStart()) {
+                } else if (cm.getMovement().isPassedStart()) {
                     playerList.getPlayer(i).setBalance(playerList.getPlayer(i).getBalance() + 200);
                     cm.setPassedStart(false);
                 }
@@ -95,7 +98,7 @@ public class Controller {
                             winningPlayerID = j;
                         }
                     }
-                    gui.showMessage(playerList.getPlayer(winningPlayerID).getName() + text[rf.findFirstWord("Money")+ 2]);
+                    gui.showMessage(playerList.getPlayer(winningPlayerID).getName() + text[rf.findFirstWord("Money") + 2]);
                     gui.close();
                     return;
                 }

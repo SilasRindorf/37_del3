@@ -1,5 +1,5 @@
 //TEMPLATE
-SEARCHWORD  - Must be in all caps
+SEARCHword  - Must be in all caps
 
 //END TEMPLATE
 PLAYERCOUNT
@@ -16,6 +16,6 @@ Player
 
 DICE
  is rolling the dices!
-Money
+MONEY
  has no money left and lost
 has the most money and has won
