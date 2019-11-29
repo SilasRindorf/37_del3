@@ -28,8 +28,8 @@ public class Sorter {
             if (logicStreet.isHasOwner()) {
                 int temp = 1;
 
-                if ((playerPosition + 1) > logic_field.length && logic_field[playerPosition + 1].getFieldID() == 6) {
-                    Logic_Street tempStreet = (Logic_Street) logic_field[playerPosition + 1];
+                if ((playerPosition + 1) < logic_field.length && logic_field[playerPosition + 1].getFieldID() == 6) {
+                        Logic_Street tempStreet = (Logic_Street) logic_field[playerPosition + 1];
                     if (logicStreet.getOwnerID() == tempStreet.getOwnerID()) {
                         temp = 2;
                     }
