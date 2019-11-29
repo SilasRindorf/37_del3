@@ -5,6 +5,8 @@ import Logic.Tiles.Logic_Field;
 import Logic.Tiles.Logic_Street;
 import gui_fields.*;
 
+import java.awt.*;
+
 public class ControllerBoard {
     private GUI_Field[] gui_fields;
     private Logic_Field[] logic_fields;
@@ -37,6 +39,15 @@ public class ControllerBoard {
             gui_fields[i].setTitle(logic_fields[i].getTitle());
             gui_fields[i].setSubText(logic_fields[i].getSubText());
             gui_fields[i].setDescription(logic_fields[i].getDescription());
+        }
+    }
+    public void colorStreet(int placementID, int playerID, Color playerColor){
+        if (logic_fields[placementID].getFieldID() == 6) {
+            Logic_Street logic_street = (Logic_Street) logic_fields[placementID];
+            if (logic_street.getOwnerID() == playerID){
+                GUI_Street gui_street = (GUI_Street) gui_fields[placementID];
+                gui_street.setBorder(playerColor);
+            }
         }
     }
 

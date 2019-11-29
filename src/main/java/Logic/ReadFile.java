@@ -25,10 +25,10 @@ public class ReadFile {
     /**
      * @param file
      * @throws FileNotFoundException The method for opening a new file. Has to be called to a valid filepath before other methods can be called
-     * <pre>
-     *  PRE: A file exists
-     *  POST: A BufferedReader is created with the filepath inputted
-     * </pre>
+     *                               <pre>
+     *                                PRE: A file exists
+     *                                POST: A BufferedReader is created with the filepath inputted
+     *                               </pre>
      */
     public void openFile(String file) throws FileNotFoundException {
         br = new BufferedReader(new FileReader(file));
@@ -39,11 +39,11 @@ public class ReadFile {
      *
      * @return an array of ints
      * @throws IOException <pre>
-     *                      PRE: A file has Integers to read and a filepath as a String
-     *                      POST: A Integer array is created from the Integers in the file and returned
-     *                     </pre>
+     *                                          PRE: A file has Integers to read and a filepath as a String
+     *                                          POST: A Integer array is created from the Integers in the file and returned
+     *                                         </pre>
      */
-    public int[] ReadInts() throws IOException {
+    /*public int[] ReadInts() throws IOException {
         int[] temp;
         int i = 0;
         br.mark(100000);
@@ -58,9 +58,8 @@ public class ReadFile {
             i++;
         }
         return temp;
-    }
-
-    public int readInt(int position) throws IOException {
+    }*/
+    /*public int readInt(int position) throws IOException {
         int temp = 0;
         br.mark(100000);
         for (int i = 0; i < position; i++) {
@@ -70,7 +69,7 @@ public class ReadFile {
         System.out.println(temp);
         br.reset();
         return temp;
-    }
+    }*/
 
     public int[] readLineOfInts(int position) throws IOException {
         int j = 0;
@@ -101,9 +100,9 @@ public class ReadFile {
      *
      * @return an array of Strings
      * @throws IOException <pre>
-     *                      PRE: A file has Text to read and a filepath as a String
-     *                      POST: A String array is created from the lines in the file and returned
-     *                     </pre>
+     *                                          PRE: A file has Text to read and a filepath as a String
+     *                                          POST: A String array is created from the lines in the file and returned
+     *                                         </pre>
      */
     public String[] fileToStringArray() throws IOException {
         int i = 0;
@@ -129,20 +128,17 @@ public class ReadFile {
      *
      * @return an Integer
      * @throws IOException <pre>
-     *                      PRE: A file has the search word in UPPERCASE
-     *                      POST: An Integer is made which is the amount of lines down the search word is
-     *                     </pre>
+     *                                          PRE: A file has the search word in UPPERCASE
+     *                                          POST: An Integer is made which is the amount of lines down the search word is
+     *                                         </pre>
      */
     public int findFirstWord(String searchWord) throws IOException {
         firstFileScan();
-        try {
-            for (int j = 0; j < strings.length; j++) {
-                if (strings[j].equals(searchWord.toUpperCase()))
-                    return j;
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
+        for (int j = 0; j < strings.length; j++) {
+            if (strings[j].equals(searchWord.toUpperCase()))
+                return j;
         }
+
         return 0;
     }
 
@@ -154,13 +150,9 @@ public class ReadFile {
         firstFileScan();
         if (strings.length < startLine || startLine < 0)
             startLine = 0;
-        try {
-            for (int j = startLine; j < strings.length; j++) {
-                if (strings[j].equals(searchWord.toUpperCase()))
-                    return j;
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
+        for (int j = startLine; j < strings.length; j++) {
+            if (strings[j].equals(searchWord.toUpperCase()))
+                return j;
         }
         return 0;
     }
@@ -171,13 +163,12 @@ public class ReadFile {
      *
      * @return an Integer
      * @throws IOException <pre>
-     *                      PRE: A file has the search word in UPPERCASE
-     *                      POST: An Integer is made which is the amount of lines down the search word is
-     *                     </pre>
+     *                                          PRE: A file has the search word in UPPERCASE
+     *                                          POST: An Integer is made which is the amount of lines down the search word is
+     *                                         </pre>
      */
     public int findWord(String searchWord, int skipAmountOfWords) throws IOException {
         firstFileScan();
-        try {
             int temp = 0;
             for (int j = 0; j < strings.length; j++) {
                 if (strings[j].equals(searchWord.toUpperCase()))
@@ -185,9 +176,6 @@ public class ReadFile {
                 if (temp == skipAmountOfWords)
                     return j;
             }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
         return 0;
     }
 
@@ -203,9 +191,9 @@ public class ReadFile {
      * Closes the BufferedReader
      *
      * @throws IOException <pre>
-     *                      PRE: A BufferedReader has to be open
-     *                      POST: The BufferedReader is closed
-     *                     </pre>
+     *                                          PRE: A BufferedReader has to be open
+     *                                          POST: The BufferedReader is closed
+     *                                         </pre>
      */
     public void closeFile() throws IOException {
         br.close();

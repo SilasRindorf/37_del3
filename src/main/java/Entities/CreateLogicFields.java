@@ -65,10 +65,6 @@ public class CreateLogicFields {
         fields.setDescription(rf.fileToStringArray()[j + 3]);
     }
 
-    public void setFields(Logic_Field[] fields) {
-        this.fields = fields;
-    }
-
     public Logic_Field[] getFields() {
         return fields;
     }

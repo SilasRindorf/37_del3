@@ -34,7 +34,4 @@ public class Movement {
 
     public void setAmountOfFields(int amountOfFields){this.amountOfFields = amountOfFields;}
 
-    public int[] getCarPositions() {
-        return carPositions;
-    }
 }
