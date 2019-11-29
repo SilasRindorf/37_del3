@@ -19,15 +19,28 @@ public class ControllerMove {
         movement.setAmountOfFields(amountOfFields);
     }
     public void moveCar(int playerID,int eyes){
-        for (int i = 1; i <= eyes; i++) {
-            gui_field[movement.getCarPosition(playerID)].setCar(gui_player,false);
-            movement.move(playerID,1);
-            try {
-                gui_field[movement.getCarPosition(playerID)].setCar(gui_player,true);
-                sleep(250);
-            } catch (InterruptedException e){
-                e.printStackTrace();
+        if (eyes <= 0){
+            for (int i = 0; i > eyes; i--) {
+                mover(eyes,playerID,100);
             }
+        }
+        else {
+            for (int i = 0; i < eyes; i++) {
+                mover(1,playerID,250);
+            }
+        }
+    }
+    private void mover(int moves, int playerID, int sleepTimer){
+        gui_field[movement.getCarPosition(playerID)].setCar(gui_player, false);
+        if (moves <= 0)
+            movement.move(playerID,-1);
+        else
+            movement.move(playerID, 1);
+        try {
+            gui_field[movement.getCarPosition(playerID)].setCar(gui_player, true);
+            sleep(sleepTimer);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
     }
     public Movement getMovement(){
@@ -44,5 +57,8 @@ public class ControllerMove {
 
     private void sleep(long miliseconds) throws InterruptedException {
         Thread.sleep(miliseconds);
+    }
+    public void setPassedStart(boolean passedStart){
+        movement.setPassedStart(passedStart);
     }
 }
