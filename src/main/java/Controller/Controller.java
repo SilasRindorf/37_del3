@@ -75,10 +75,6 @@ public class Controller {
                 cm.moveCar(i, 18);
 
                 gui.showMessage(gui.getFields()[cm.getMovement().getCarPosition(playerList.getPlayer(i).getId())].getDescription());
-                if (cm.getMovement().getCarPosition(i) == 18) {
-                    int temp = gui.getUserInteger("monies");
-                    playerList.getPlayer(i).setBalance(temp);
-                }
                 sorter.findLogicField(board.getLogic_fields(), i, cm.getMovement().getCarPosition(i));
                 board.colorStreet(cm.getMovement().getCarPosition(i), i, pc.getPlayers()[i].getPrimaryColor());
 
