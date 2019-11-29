@@ -3,7 +3,7 @@ SEARCHWORD - Must be in all caps
 Title.
 Subtitle
 Description
-//End template
+//End template.
 
 START
 Start
