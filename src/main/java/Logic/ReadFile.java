@@ -146,6 +146,7 @@ public class ReadFile {
      * overload findFirstWord, start from a Integer chosen. If the Integer is less than 0 or less than the file length
      * then the Integer is set to 0
      */
+    /*
     public int findFirstWord(String searchWord, int startLine) throws IOException {
         firstFileScan();
         if (strings.length < startLine || startLine < 0)
@@ -157,6 +158,8 @@ public class ReadFile {
         return 0;
     }
 
+     */
+
     /**
      * overload findFirstWord, start from a chosen Integer. If the Integer is less than 0 or less than the file length
      * then the Integer is set to 0. Skip the found word a chosen amount of time
@@ -167,7 +170,7 @@ public class ReadFile {
      *                                          POST: An Integer is made which is the amount of lines down the search word is
      *                                         </pre>
      */
-    public int findWord(String searchWord, int skipAmountOfWords) throws IOException {
+     /* public int findWord(String searchWord, int skipAmountOfWords) throws IOException {
         firstFileScan();
             int temp = 0;
             for (int j = 0; j < strings.length; j++) {
@@ -179,6 +182,7 @@ public class ReadFile {
         return 0;
     }
 
+      */
     private void firstFileScan() throws IOException {
         if (strings.length == 0 && !emptyFile) {
             strings = fileToStringArray();
@@ -195,7 +199,9 @@ public class ReadFile {
      *                                          POST: The BufferedReader is closed
      *                                         </pre>
      */
-    public void closeFile() throws IOException {
+  /*  public void closeFile() throws IOException {
         br.close();
     }
+
+   */
 }
