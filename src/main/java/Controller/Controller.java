@@ -85,6 +85,7 @@ public class Controller {
                 else if (cm.getMovement().isPassedStart()) {
                     playerList.getPlayer(i).setBalance(playerList.getPlayer(i).getBalance() + 200);
                     cm.setPassedStart(false);
+                    pc.updatePlayer(playerList);
                 }
                 pc.updatePlayer(playerList);
                 if (playerList.getPlayer(i).getBalance() <= 0) {
@@ -95,7 +96,7 @@ public class Controller {
                             winningPlayerID = j;
                         }
                     }
-                    gui.showMessage(playerList.getPlayer(winningPlayerID).getName() + text[rf.findFirstWord("Money")+ 2]);
+                    gui.showMessage(playerList.getPlayer(winningPlayerID).getName() + " " + text[rf.findFirstWord("Money")+ 2]);
                     gui.close();
                     return;
                 }
