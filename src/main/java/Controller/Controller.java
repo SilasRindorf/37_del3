@@ -96,8 +96,7 @@ public class Controller {
                             winningPlayerID = j;
                         }
                     }
-                    gui.showMessage(playerList.getPlayer(winningPlayerID).getName() + " " + text[rf.findFirstWord("Money")+ 2]);
-                    gui.showMessage(playerList.getPlayer(winningPlayerID).getName() + controllerText[rf.findFirstWord("Money") + 2]);
+                    gui.showMessage(playerList.getPlayer(winningPlayerID).getName()+ " " + controllerText[rf.findFirstWord("Money") + 2]);
                     gui.close();
                     return;
                 }
