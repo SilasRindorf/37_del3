@@ -24,9 +24,9 @@ public class ReadFile {
      * @param file
      * @throws FileNotFoundException The method for opening a new file. Has to be called to a valid filepath before other methods can be called
      *                               <pre>
-     *                                PRE: A file exists
-     *                                POST: A BufferedReader is created with the filepath inputted
-     *                               </pre>
+     *                                                              PRE: A file exists
+     *                                                              POST: A BufferedReader is created with the filepath inputted
+     *                                                             </pre>
      */
     public void openFile(String file) throws FileNotFoundException {
         br = new BufferedReader(new InputStreamReader(
@@ -37,9 +37,9 @@ public class ReadFile {
      *
      * @return an array of ints
      * @throws IOException <pre>
-     *                                          PRE: A file has Integers to read and a filepath as a String
-     *                                          POST: A Integer array is created from the Integers in the file and returned
-     *                                         </pre>
+     *                                                              PRE: A file has Integers to read and a filepath as a String
+     *                                                              POST: A Integer array is created from the Integers in the file and returned
+     *                                                             </pre>
      */
     /*public int[] ReadInts() throws IOException {
         int[] temp;
@@ -68,7 +68,6 @@ public class ReadFile {
         br.reset();
         return temp;
     }*/
-
     public int[] readLineOfInts(int position) throws IOException {
         int j = 0;
         br.mark(100000);
@@ -98,9 +97,9 @@ public class ReadFile {
      *
      * @return an array of Strings
      * @throws IOException <pre>
-     *                                          PRE: A file has Text to read and a filepath as a String
-     *                                          POST: A String array is created from the lines in the file and returned
-     *                                         </pre>
+     *                                                              PRE: A file has Text to read and a filepath as a String
+     *                                                              POST: A String array is created from the lines in the file and returned
+     *                                                             </pre>
      */
     public String[] fileToStringArray() throws IOException {
         int i = 0;
@@ -125,9 +124,9 @@ public class ReadFile {
      *
      * @return an Integer
      * @throws IOException <pre>
-     *                                          PRE: A file has the search word in UPPERCASE
-     *                                          POST: An Integer is made which is the amount of lines down the search word is
-     *                                         </pre>
+     *                                                              PRE: A file has the search word in UPPERCASE
+     *                                                              POST: An Integer is made which is the amount of lines down the search word is
+     *                                                             </pre>
      */
     public int findFirstWord(String searchWord) throws IOException {
         firstFileScan();
@@ -163,9 +162,9 @@ public class ReadFile {
      *
      * @return an Integer
      * @throws IOException <pre>
-     *                                          PRE: A file has the search word in UPPERCASE
-     *                                          POST: An Integer is made which is the amount of lines down the search word is
-     *                                         </pre>
+     *                                                              PRE: A file has the search word in UPPERCASE
+     *                                                              POST: An Integer is made which is the amount of lines down the search word is
+     *                                                             </pre>
      */
      /* public int findWord(String searchWord, int skipAmountOfWords) throws IOException {
         firstFileScan();

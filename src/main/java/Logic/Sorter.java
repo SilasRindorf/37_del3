@@ -69,5 +69,4 @@ public class Sorter {
     public void setInJail(int playerID, boolean isInJail) {
         this.playerList.getPlayer(playerID).setInJail(isInJail);
     }
-
 }
