@@ -20,19 +20,17 @@ public class ControllerMove {
     }
     public void moveCar(int playerID,int eyes){
         if (eyes <= 0){
-            //gui_field[movement.getCarPosition(playerID)].setCar(gui_player, false);
             for (int i = 0; i > eyes; i--) {
-                mover(eyes,playerID);
+                mover(eyes,playerID,100);
             }
-            //gui_field[6].setCar(gui_player, true);
         }
         else {
             for (int i = 0; i < eyes; i++) {
-                mover(1,playerID);
+                mover(1,playerID,250);
             }
         }
     }
-    private void mover(int moves, int playerID){
+    private void mover(int moves, int playerID, int sleepTimer){
         gui_field[movement.getCarPosition(playerID)].setCar(gui_player, false);
         if (moves <= 0)
             movement.move(playerID,-1);
@@ -40,7 +38,7 @@ public class ControllerMove {
             movement.move(playerID, 1);
         try {
             gui_field[movement.getCarPosition(playerID)].setCar(gui_player, true);
-            sleep(250);
+            sleep(sleepTimer);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

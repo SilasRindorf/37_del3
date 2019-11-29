@@ -1,5 +1,5 @@
 //TEMPLATE
-SEARCHWORD  - Must be in all caps
+SEARCHword  - Must be in all caps
 
 //END TEMPLATE
 PLAYERCOUNT

@@ -16,8 +16,6 @@ public class Movement {
             carPositions[playerID] -= amountOfFields;
             passedStart = true;
         }
-        else {
-        }
     }
 
     public boolean isPassedStart() {
