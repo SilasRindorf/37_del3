@@ -105,14 +105,12 @@ public class ReadFile {
     public String[] fileToStringArray() throws IOException {
         int i = 0;
         br.mark(100000);
-        if (strings.length == 0) {
-            while (br.readLine() != null) {
-                i++;
-            }
-            strings = new String[i];
-            br.reset();
+        while (br.readLine() != null) {
+            i++;
         }
-        br.mark(10000);
+        strings = new String[i];
+        br.reset();
+
         int j = 0;
         for (String line; (line = br.readLine()) != null; ) {
             strings[j] = line;
