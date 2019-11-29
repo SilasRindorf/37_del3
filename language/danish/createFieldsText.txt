@@ -1,3 +1,10 @@
+//Template
+SEARCHWORD - Must be in all caps
+Title.
+Subtitle
+Description
+//End template
+
 START
 Start
 Modtag 200M
