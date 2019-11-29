@@ -72,8 +72,8 @@ public class Controller {
                 dice.rollDice();
                 gui.setDie(dice.getEyes());
 
-                //cm.moveCar(i,dice.getEyes());
-                cm.moveCar(i, 18);
+                cm.moveCar(i,dice.getEyes());
+                //cm.moveCar(i, 18);
 
                 gui.showMessage(gui.getFields()[cm.getMovement().getCarPosition(playerList.getPlayer(i).getId())].getDescription());
                 sorter.findLogicField(board.getClf().getFields(), i, cm.getMovement().getCarPosition(i));
