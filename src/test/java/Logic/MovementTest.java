@@ -33,10 +33,4 @@ public class MovementTest {
 
             }
     }
-
-    @Test
-        public void isPassedStart(){
-        boolean passedStart = movers.isPassedStart();
-    }
-
 }

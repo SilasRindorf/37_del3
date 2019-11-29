@@ -15,6 +15,6 @@ Spiller
 
 DICE
  slår med terningen!
-Money
+MONEY
  har ingen penge tilbage og har tabt
 har flest penge og har vundet

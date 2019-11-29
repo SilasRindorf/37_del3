@@ -112,6 +112,7 @@ public class ReadFile {
             strings = new String[i];
             br.reset();
         }
+        br.mark(10000);
         int j = 0;
         for (String line; (line = br.readLine()) != null; ) {
             strings[j] = line;
