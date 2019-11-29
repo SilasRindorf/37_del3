@@ -8,11 +8,15 @@ public class ControllerPlayer {
     private GUI_Player[] players;
 
     public void createGUIPlayer(int playerID, String name) {
-        players[playerID] = new GUI_Player("Player " + (playerID + 1) + " " + name, 1000, createCar(playerID));
+        players[playerID] = new GUI_Player("Player " + playerID + " " + name, 1000, createCar(playerID));
     }
 
-    public void updatePlayer(PlayerList playerList, int id) {
-        players[id].setBalance(playerList.getPlayer(id).getBalance());
+    public void updatePlayer(PlayerList playerList) {
+        for (int i = 0; i < playerList.getPlayers().length; i++) {
+            players[i].setBalance(playerList.getPlayer(i).getBalance());
+        }
+
+
     }
 
     private GUI_Car createCar(int playerID) {
@@ -27,6 +31,7 @@ public class ControllerPlayer {
     public GUI_Player[] getPlayers() {
         return players;
     }
+
 
     public void setPlayerCount(int playerCount) {
         players = new GUI_Player[playerCount];

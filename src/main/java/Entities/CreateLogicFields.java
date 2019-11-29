@@ -7,7 +7,6 @@ import java.io.IOException;
 public class CreateLogicFields {
     private Logic_Field[] fields;
     private ReadFile rf = new ReadFile();
-
     public Logic_Field[] createNewTiles() throws Exception {
         return createNewTiles("english");
     }
@@ -65,11 +64,8 @@ public class CreateLogicFields {
         fields.setDescription(rf.fileToStringArray()[j + 3]);
     }
 
-    public void setFields(Logic_Field[] fields) {
-        this.fields = fields;
-    }
-
     public Logic_Field[] getFields() {
+        //Commit
         return fields;
     }
 }

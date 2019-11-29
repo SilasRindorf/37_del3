@@ -1,5 +1,4 @@
 package Logic.Tiles;
-//Asso Logic_Field
 public class Logic_Jail extends Logic_Field {
     private boolean inJail;
     private boolean chanceOutOfJail;

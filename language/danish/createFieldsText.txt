@@ -1,3 +1,10 @@
+//Template
+SEARCHWORD - Must be in all caps
+Title.
+Subtitle
+Description
+//End template
+
 START
 Start
 Modtag 200M
@@ -25,81 +32,81 @@ Du er landet på gå i fængsel og får en tur i brummen for uanstændig opførs
 
 STREET0
 Kurger Bing
-M100
-Du køber Kurger Bing for M100.
+M100/M60
+Kurger Bing: Pris for grund M100 / Pris for leje M60.
 
 
 STREET1
 Fentucky Kried Ficken
-M100
-Du køber Fentucky Kried Ficken for M100.
+M100/M60
+Fentucky Kried Ficken: Pris for grund M100 / Pris for leje M60.
 
 STREET2
 50 Cents Candy Shop
-M120
-Du køber 50 Cents Candy Shop for M120.
+M120/M70
+50 Cents Candy Shop: Pris for grund M120 / Pris for leje M70.
 
 STREET3
 SnackHack
-M120
-Du køber SnackHack for M120.
+M120/M70
+SnackHack: Pris for grund M120 / Pris for leje M70.
 
 STREET4
 Mousiana
-M140
-Du køber Mousiana for M140.
+M140/M80
+Mousiana: Pris for grund M140 / Pris for leje M80.
 
 STREET5
 Statsbiblioteket
-M140
-Du køber Statsbiblioteket for M140.
+M140/M80
+Statsbiblioteket: Pris for grund M140 / Pris for leje M80.
 
 STREET6
 Nielses Netcafé
-M160
-Du køber Nielses Netcafé for M160.
+M160/M90
+Nielses Netcafé: Pris for grund M160 / Pris for leje M90.
 
 STREET7
 Børges Biograf
-M160
-Du køber Børges Biograf for M160.
+M160/M90
+Børges Biograf: Pris for grund M160 / Pris for leje M90.
 
 STREET8
 Turbo Tivoli
-M180
-Du køber Turbo Tivoli for M180.
+M180/M100
+Turbo Tivoli: Pris for grund M180 / Pris for leje M100.
 
 STREET9
 Dr. Pillefingers Legeplads
-M180
-Du køber Dr. Pillefingers Legeplads for M180.
+M180/M100
+Dr. Pillefingers Legeplads: Pris for grund M180 / Pris for leje M100.
 
 STREET10
 Gadgets for Animals
-M200
-Du køber Gadgets for Animals for M200.
+M200/M110
+Gadgets for Animals: Pris for grund M200 / Pris for leje M110.
 
 STREET11
 Dannys Dyr
-M200
-Du køber Dannys Dyr for M200.
+M200/M110
+Dannys Dyr: Pris for grund M200 / Pris for leje M110.
 
 STREET12
 Harambes Zoo
-M220
-Du køber Harambes Zoo for M220.
+M220/M120
+Harambes Zoo: Pris for grund M220 / Pris for leje M120.
 
 STREET13
 Bajer og Bowling
-M220
-Du køber Bajer og Bowling for M220.
+M220/M120
+Bajer og Bowling: Pris for grund M220 / Pris for leje M120.
 
 STREET14
 Københavnskanaler
-M240
-Du køber Københavnskanaler for M240.
+M240/M130
+Københavnskanaler: Pris for grund M240 / Pris for leje M130.
 
 STREET15
 Kystens Svømmehal
-M240
-Du køber Kystens Svømmehal for M240.
+M240/M130
+Kystens Svømmehal: Pris for grund M240 / Pris for leje M130.
